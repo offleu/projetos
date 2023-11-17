@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Arquivos</title>
+</head>
+<body>
+
+<!-- Cabeçalho -->
+<header>
+    <p>Login | Logout</p>
+</header>
+
+<!-- Menu lateral -->
+<nav>
+    <img src="./img/logo.png" class="logo">
+    <ul>    
+        <li><a href="cadastrar.html">Cadastrar</a></li>
+        <li><a href="anamnese.html">Anamnese</a></li>
+        <li><a href="laudos.html">Laudos</a></li>
+        <li><a href="textoeatestado.html">Textos e Atestado</a></li>
+        <li><a href="acompanhamento.html">Acompanhamento</a></li>
+        <li><a href="agendamento.html">Agendamento</a></li>
+        <li><a href="arquivos.html">Arquivos</a></li>
+    </ul>
+</nav>
+
+<!-- Conteúdo principal -->
+<main>
+  <div class = form>
+    <form>
+      <div class = "form-header">
+        <div class = "title">
+          <h1>
+            Cadastrar Paciente
+          </h1>
+
+        </div>
+
+        <div class = "input-group">
+          <div class="input-box">
+            <label for = "primeironome"> Nome</label>
+            <input id="primeironome" type="text" name="name" placeholder="Nome do paciente" required>
+          </div>
+          <div class="input-box">
+            <label for = "nascimento"> Nascimento</label>
+            <input id="nascimento" type="date" name="nascimento" placeholder="Data de Nascimento" required>
+          </div>
+          <div class="input-box">
+            <label for = "cpf"> CPF</label>
+            <input id="cpf" type="###.###.###-##" name="cpf" placeholder="Digite o CPF(sem traço e ponto)" required>
+          </div>
+          <div class="input-box">
+            <label for = "responsavel"> Responsavel</label>
+            <input id="responsavel" type="text" name="responsavel" placeholder="Nome do responsavel" required>
+          </div>
+          <div class="input-box">
+            <label for = "telefoneresponsavel"> Telefone do Responsavel</label>
+            <input id="telefoneresponsavel" type="tel" name="telefoneresponsavel" placeholder="Telefone do responsavel" required>
+          </div>
+          <div>
+          
+          <div class="gender-group">
+            <div class="input-gender">
+              <label for = "genero"> Masculino</label>
+              <input id="genero" type="radio" name="genero" placeholder="genero" required>
+            </div>
+            <div class="input-gender">
+              <label for = "genero"> Femenino</label>
+              <input id="genero" type="radio" name="genero" placeholder="genero" required>
+            </div>
+          </div>
+
+        </div>
+
+        <div class = "cadastrar-bottom"> 
+          <button a href="#"> Cadastrar
+          </button>
+  
+        </div>
+
+        
+
+        </div>
+
+        
+
+      </div>
+    
+    </form>
+
+  </div>
+
+  <container>
+    <div class="pacientes-cadastrados">
+      <h1> 
+        Pacientes Cadastrados
+      </h1>
+    </div>
+  </container>
+
+</main>
+
+</body>
+</html>
