@@ -29,7 +29,62 @@
 
 <!-- Conteúdo principal -->
 <main>
-    <table border="1">
+    <h1>
+        Agenda do dia
+    </h1>
+    <container>
+        <tbody>
+            <Table class="agendadodia" border="2">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th class="nomeagendadodia">Paciente</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>07:00 - 08:00</td>
+                </tr>
+                <tr>
+                    <td>08:00 - 09:00</td>
+                </tr>
+                <tr>
+                    <td>09:00 - 10:00</td>
+                </tr>
+                <tr>
+                    <td>10:00 - 11:00</td>
+                </tr>
+                <tr>
+                    <td>11:00 - 12:00</td>
+                </tr>
+                <tr>
+                    <td>12:00 - 13:00</td>
+                </tr>
+                <tr>
+                    <td>13:00 - 14:00</td>
+                </tr>
+                <tr>
+                    <td>14:00 - 15:00</td>
+                </tr><tr>
+                    <td>15:00 - 16:00</td>
+                </tr>
+                <tr>
+                    <td>16:00 - 17:00</td>
+                </tr>
+                <tr>
+                    <td>17:00 - 18:00</td>
+                </tr>
+                <tr>
+                    <td>18:00 - 19:00</td>
+                </tr>
+            
+
+            
+
+            </Table>
+        </tbody>
+    </container>
+    <h1>Agendamento</h1>
+    <table class="agenda" border="2">
         <thead>
             <tr>
                 <th>Hora</th>
@@ -42,6 +97,22 @@
         </thead>
         <tbody>
             <!-- Defina os intervalos de horas conforme necessário -->
+            <tr>
+                <td>07:00 - 08:00</td>
+                <td id="segunda-0700"></td>
+                <td id="terca-0700"></td>
+                <td id="quarta-0700"></td>
+                <td id="quinta-0700"></td>
+                <td id="sexta-0700"></td>
+            </tr>
+            <tr>
+                <td>08:00 - 09:00</td>
+                <td id="segunda-0800"></td>
+                <td id="terca-0800"></td>
+                <td id="quarta-0800"></td>
+                <td id="quinta-0800"></td>
+                <td id="sexta-0800"></td>
+            </tr>
             <tr>
                 <td>09:00 - 10:00</td>
                 <td id="segunda-0900"></td>
@@ -58,14 +129,78 @@
                 <td id="quinta-1000"></td>
                 <td id="sexta-1000"></td>
             </tr>
+            <tr>
+                <td>11:00 - 12:00</td>
+                <td id="segunda-1100"></td>
+                <td id="terca-1100"></td>
+                <td id="quarta-1100"></td>
+                <td id="quinta-1100"></td>
+                <td id="sexta-1100"></td>
+            </tr>
+            <tr>
+                <td>12:00 - 13:00</td>
+                <td id="segunda-1200"></td>
+                <td id="terca-1200"></td>
+                <td id="quarta-1200"></td>
+                <td id="quinta-1200"></td>
+                <td id="sexta-1200"></td>
+            </tr>
+            <tr>
+                <td>13:00 - 14:00</td>
+                <td id="segunda-1300"></td>
+                <td id="terca-1300"></td>
+                <td id="quarta-1300"></td>
+                <td id="quinta-1300"></td>
+                <td id="sexta-1300"></td>
+            </tr>
+            <tr>
+                <td>14:00 - 15:00</td>
+                <td id="segunda-1400"></td>
+                <td id="terca-1400"></td>
+                <td id="quarta-1400"></td>
+                <td id="quinta-1400"></td>
+                <td id="sexta-1400"></td>
+            </tr>
+            <tr>
+                <td>15:00 - 16:00</td>
+                <td id="segunda-1500"></td>
+                <td id="terca-1500"></td>
+                <td id="quarta-1500"></td>
+                <td id="quinta-1500"></td>
+                <td id="sexta-1500"></td>
+            </tr>
+            <tr>
+                <td>16:00 - 17:00</td>
+                <td id="segunda-1600"></td>
+                <td id="terca-1600"></td>
+                <td id="quarta-1600"></td>
+                <td id="quinta-1600"></td>
+                <td id="sexta-1600"></td>
+            </tr>
+            <tr>
+                <td>17:00 - 18:00</td>
+                <td id="segunda-1700"></td>
+                <td id="terca-1700"></td>
+                <td id="quarta-1700"></td>
+                <td id="quinta-1700"></td>
+                <td id="sexta-1700"></td>
+            </tr>
+            <tr>
+                <td>18:00 - 19:00</td>
+                <td id="segunda-1800"></td>
+                <td id="terca-1800"></td>
+                <td id="quarta-1800"></td>
+                <td id="quinta-1800"></td>
+                <td id="sexta-1800"></td>
+            </tr>
             <!-- Adicione mais linhas conforme necessário -->
 
             <!-- Exemplo de formulário para adicionar evento -->
             <tr>
-                <td>Adicionar Evento</td>
+                <td>Agendar</td>
                 <td colspan="5">
                     <form onsubmit="adicionarEvento(); return false;">
-                        <input type="text" id="evento" placeholder="Nome do Evento" required>
+                        <input type="text" id="evento" placeholder="Paciente" required>
                         <select id="dia">
                             <option value="segunda">Segunda-feira</option>
                             <option value="terca">Terça-feira</option>
@@ -74,8 +209,20 @@
                             <option value="sexta">Sexta-feira</option>
                         </select>
                         <select id="hora">
+                            <option value="0700">07:00 - 08:00</option>
+                            <option value="0800">08:00 - 09:00</option>
                             <option value="0900">09:00 - 10:00</option>
                             <option value="1000">10:00 - 11:00</option>
+                            <option value="1100">11:00 - 12:00</option>
+                            <option value="1200">12:00 - 13:00</option>
+                            <option value="1300">13:00 - 14:00</option>
+                            <option value="1400">14:00 - 15:00</option>
+                            <option value="1500">15:00 - 16:00</option>
+                            <option value="1600">16:00 - 17:00</option>
+                            <option value="1700">17:00 - 18:00</option>
+                            <option value="1800">18:00 - 19:00</option>
+                            
+
                             <!-- Adicione mais opções conforme necessário -->
                         </select>
                         <button type="submit">Adicionar</button>
@@ -86,6 +233,20 @@
     </table>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Recuperar eventos do armazenamento local ao carregar a página
+            for (var dia = 1; dia <= 5; dia++) {
+                for (var hora = 9; hora <= 17; hora++) {
+                    var cellId = getCellId(dia, hora);
+                    var eventoSalvo = localStorage.getItem(cellId);
+
+                    if (eventoSalvo) {
+                        document.getElementById(cellId).innerText = eventoSalvo;
+                    }
+                }
+            }
+        });
+
         function adicionarEvento() {
             // Obter valores do formulário
             var nomeEvento = document.getElementById('evento').value;
@@ -98,10 +259,18 @@
             // Adicionar o evento à célula
             document.getElementById(cellId).innerText = nomeEvento;
 
+            // Salvar o evento no armazenamento local
+            localStorage.setItem(cellId, nomeEvento);
+
             // Limpar o formulário
             document.getElementById('evento').value = '';
         }
+
+        function getCellId(dia, hora) {
+            return dia + '-' + hora + '00';
+        }
     </script>
+        
 
 </main>
 
