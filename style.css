@@ -188,6 +188,12 @@ main {
 
 }
 
+.salvar-bottom button a {
+    text-decoration: none;
+    color: #fff;
+
+}
+
 .logo {
     width: 175px;
 }
