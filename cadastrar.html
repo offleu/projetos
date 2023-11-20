@@ -30,7 +30,7 @@
 <!-- Conteúdo principal -->
 <main>
   <div class = form>
-    <form action="https://api.sheetmonkey.io/form/oR9ueS8YZmfavsw7Bmem6w" method="post">
+    <form action="#" method="post">
       <div class = "form-header">
         <div class = "title">
           <h1>
@@ -98,8 +98,89 @@
       <h1> 
         Pacientes Cadastrados
       </h1>
+      <ListaPacientes/>
     </div>
   </container>
+  <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js"></script>
+  <script>
+    // Configurações do Firebase - Substitua pelos valores do seu projeto Firebase
+    var firebaseConfig = {
+      apiKey: "AIzaSyDABxRv7TeJCvrJqJxpdK-WAvqElPb8Ex0",
+    authDomain: "site-maria-julia.firebaseapp.com",
+    projectId: "site-maria-julia",
+    storageBucket: "site-maria-julia.appspot.com",
+    messagingSenderId: "641579312371",
+    appId: "1:641579312371:web:3e7abda6a092df4db58386",
+    measurementId: "G-5WEYPJSCS3"
+    };
+
+    // Inicializar o Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+
+    function cadastrarPaciente() {
+      // Obter valores do formulário
+      var nome = document.getElementById('primeironome').value;
+      var nascimento = document.getElementById('nascimento').value;
+      var cpf = document.getElementById('cpf').value;
+      var responsavel = document.getElementById('responsavel').value;
+      var telefoneresponsavel = document.getElementById('telefoneresponsavel').value;
+      var genero = document.querySelector('input[name="genero"]:checked').value;
+
+      // Adicionar paciente ao Firestore
+      db.collection("pacientes").add({
+        nome: nome,
+        nascimento: nascimento,
+        cpf: cpf,
+        responsavel: responsavel,
+        telefoneresponsavel: telefoneresponsavel,
+        genero: genero
+      })
+      .then(function(docRef) {
+        console.log("Paciente cadastrado com ID: ", docRef.id);
+        alert("Paciente cadastrado com sucesso!");
+        limparFormulario();
+        carregarPacientes();
+      })
+      .catch(function(error) {
+        console.error("Erro ao cadastrar paciente: ", error);
+      });
+    }
+
+    function limparFormulario() {
+      document.getElementById('primeironome').value = '';
+      document.getElementById('nascimento').value = '';
+      document.getElementById('cpf').value = '';
+      document.getElementById('responsavel').value = '';
+      document.getElementById('telefoneresponsavel').value = '';
+      document.getElementById('generoM').checked = false;
+      document.getElementById('generoF').checked = false;
+    }
+
+    function carregarPacientes() {
+      // Limpar a lista antes de carregar os pacientes
+      var listaPacientes = document.getElementById('listaPacientes');
+      listaPacientes.innerHTML = '';
+
+      // Carregar pacientes do Firestore
+      db.collection("pacientes").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          var paciente = doc.data();
+          var listItem = document.createElement('li');
+          listItem.textContent = `${paciente.nome} - ${paciente.cpf}`;
+          listaPacientes.appendChild(listItem);
+        });
+      });
+    }
+
+    // Carregar pacientes ao carregar a página
+    document.addEventListener("DOMContentLoaded", function() {
+      carregarPacientes();
+    });
+  </script>
+
+  
 
 </main>
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-mVfbIuTZ82GGfY5Y64F0vnpxTsL0FAsd+PzUpNTbCmbjoRj9a19/ZWgPbCK8SdsAatjt2bWjoX8z58kYceoqzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Agendamento</title>
 </head>
 <body>
@@ -29,9 +30,9 @@
 
 <!-- Conteúdo principal -->
 <main>
-    <h1>
-        Agenda do dia
-    </h1>
+        <h1 class="agendamento h1">
+            Agenda do dia
+        </h1>
     <container>
         <tbody>
             <Table class="agendadodia" border="2">
@@ -83,7 +84,7 @@
             </Table>
         </tbody>
     </container>
-    <h1>Agendamento</h1>
+    <h1 class="agendamentoh1">Agendamento</h1>
     <table class="agenda" border="2">
         <thead>
             <tr>
@@ -242,6 +243,7 @@
 
                     if (eventoSalvo) {
                         document.getElementById(cellId).innerText = eventoSalvo;
+                        adicionarBotaoExcluir(cellId); // Adiciona o botão de excluir para eventos existentes
                     }
                 }
             }
@@ -258,12 +260,31 @@
 
             // Adicionar o evento à célula
             document.getElementById(cellId).innerText = nomeEvento;
+            adicionarBotaoExcluir(cellId);
 
             // Salvar o evento no armazenamento local
             localStorage.setItem(cellId, nomeEvento);
 
             // Limpar o formulário
             document.getElementById('evento').value = '';
+        }
+
+        function adicionarBotaoExcluir(cellId) {
+            // Adiciona um botão de excluir ao lado do evento
+            var cell = document.getElementById(cellId);
+            var botaoExcluir = document.createElement("button");
+            botaoExcluir.innerHTML = "Excluir";
+            botaoExcluir.onclick = function () {
+                excluirEvento(cellId);
+            };
+            cell.appendChild(botaoExcluir);
+        }
+
+        function excluirEvento(cellId) {
+            // Exclui o evento da célula e remove do armazenamento local
+            var cell = document.getElementById(cellId);
+            cell.innerText = "";
+            localStorage.removeItem(cellId);
         }
 
         function getCellId(dia, hora) {

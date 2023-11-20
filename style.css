@@ -248,6 +248,10 @@ button:hover {
     background-color: rgb(106, 0, 159);
 }
 
+.agendamentoh1 {
+    padding: 2rem;
+}
+
 
 @media screen and  (max-width: 1330px){
     .form {
