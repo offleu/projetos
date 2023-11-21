@@ -7,10 +7,9 @@
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+    <script src="/pacientes.js"></script>
     <script type="text/javascript"></script>
     <title>Arquivos</title>
-
 </head>
 <body>
 
@@ -35,20 +34,19 @@
 
 <!-- Conteúdo principal -->
 <main>
-  <div class = form>
+  <div class="form">
     <form action="">
-      <div class = "form-header">
-        <div class = "title">
+      <div class="form-header">
+        <div class="title">
           <h1>
             Cadastrar Paciente
           </h1>
-
         </div>
 
         <div class="input-group">
           <div class="input-box">
             <label for="primeironome"> Nome</label>
-            <input id="primeironome" type="text" name="name" placeholder="Nome do paciente" required>
+            <input id="primeironome" type="text" name="primeironome" placeholder="Nome do paciente" required>
           </div>
           <div class="input-box">
             <label for="nascimento"> Nascimento</label>
@@ -91,28 +89,30 @@
     </div>
   </div>
 
-        
-
-        </div>
-
-        
-
-      </div>
-    
-    </form>
-
-  </div>
-
-  
-  <script src="/pacientes.js"></script>
-
-
-  
-
-</head>
-  
-
 </main>
+
+<script>
+  // Configuração do Firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyDABxRv7TeJCvrJqJxpdK-WAvqElPb8Ex0",
+    authDomain: "site-maria-julia.firebaseapp.com",
+    databaseURL: "https://site-maria-julia-default-rtdb.firebaseio.com",
+    projectId: "site-maria-julia",
+    storageBucket: "site-maria-julia.appspot.com",
+    messagingSenderId: "641579312371",
+    appId: "1:641579312371:web:3e7abda6a092df4db58386",
+    measurementId: "G-5WEYPJSCS3"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+  var pacientesRef = database.ref('pacientes');
+
+  // Carregar pacientes ao carregar a página
+  document.addEventListener("DOMContentLoaded", function() {
+    carregarPacientes();
+  });
+</script>
 
 </body>
 </html>

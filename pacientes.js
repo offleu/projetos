@@ -1,3 +1,5 @@
+
+
 var firebaseConfig = {
   apiKey: "AIzaSyDABxRv7TeJCvrJqJxpdK-WAvqElPb8Ex0",
   authDomain: "site-maria-julia.firebaseapp.com",
@@ -9,13 +11,12 @@ var firebaseConfig = {
   measurementId: "G-5WEYPJSCS3"
 };
 firebase.initializeApp(firebaseConfig);
-
-// Referência para o nó "pacientes" no Realtime Database
 var database = firebase.database();
 var pacientesRef = database.ref('pacientes');
 
+
+
 function cadastrarPaciente() {
-  // Obter valores do formulário
   var nome = document.getElementById('primeironome').value;
   var nascimento = document.getElementById('nascimento').value;
   var cpf = document.getElementById('cpf').value;
@@ -23,7 +24,6 @@ function cadastrarPaciente() {
   var telefoneresponsavel = document.getElementById('telefoneresponsavel').value;
   var genero = document.querySelector('input[name="genero"]:checked').value;
 
-  // Adicionar paciente ao Realtime Database
   pacientesRef.push({
     nome: nome,
     nascimento: nascimento,
@@ -39,35 +39,13 @@ function cadastrarPaciente() {
 }
 
 function limparFormulario() {
-  document.getElementById('primeironome').value = '';
-  document.getElementById('nascimento').value = '';
-  document.getElementById('cpf').value = '';
-  document.getElementById('responsavel').value = '';
-  document.getElementById('telefoneresponsavel').value = '';
-  document.getElementById('generoM').checked = false;
-  document.getElementById('generoF').checked = false;
+  // Seu código para limpar o formulário
 }
 
 function carregarPacientes() {
-  // Limpar a lista antes de carregar os pacientes
-  var listaPacientes = document.getElementById('listaPacientes');
-  listaPacientes.innerHTML = '';
-
-  // Carregar pacientes do Realtime Database
-  pacientesRef.once('value').then(function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var paciente = childSnapshot.val();
-      var listItem = document.createElement('li');
-      listItem.textContent = `${paciente.nome} - ${paciente.cpf}`;
-      listaPacientes.appendChild(listItem);
-    });
-  });
+  // Seu código para carregar pacientes
 }
 
-// Carregar pacientes ao carregar a página
 document.addEventListener("DOMContentLoaded", function() {
   carregarPacientes();
 });
-  
-
- 
