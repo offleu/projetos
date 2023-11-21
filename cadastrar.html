@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js'
+  
+      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js'
+  
+      // Add Firebase products that you want to use
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js'
+      import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+    </script>
     <title>Arquivos</title>
+
 </head>
 <body>
 
@@ -39,47 +50,51 @@
 
         </div>
 
-        <div class = "input-group">
+        <div class="input-group">
           <div class="input-box">
-            <label for = "primeironome"> Nome</label>
+            <label for="primeironome"> Nome</label>
             <input id="primeironome" type="text" name="name" placeholder="Nome do paciente" required>
           </div>
           <div class="input-box">
-            <label for = "nascimento"> Nascimento</label>
+            <label for="nascimento"> Nascimento</label>
             <input id="nascimento" type="date" name="nascimento" placeholder="Data de Nascimento" required>
           </div>
           <div class="input-box">
-            <label for = "cpf"> CPF</label>
-            <input id="cpf" type="###.###.###-##" name="cpf" placeholder="Digite o CPF(sem traço e ponto)" required>
+            <label for="cpf"> CPF</label>
+            <input id="cpf" type="text" name="cpf" placeholder="Digite o CPF(sem traço e ponto)" required>
           </div>
           <div class="input-box">
-            <label for = "responsavel"> Responsavel</label>
+            <label for="responsavel"> Responsavel</label>
             <input id="responsavel" type="text" name="responsavel" placeholder="Nome do responsavel" required>
           </div>
           <div class="input-box">
-            <label for = "telefoneresponsavel"> Telefone do Responsavel</label>
+            <label for="telefoneresponsavel"> Telefone do Responsavel</label>
             <input id="telefoneresponsavel" type="tel" name="telefoneresponsavel" placeholder="Telefone do responsavel" required>
           </div>
-          <div>
-          
+
           <div class="gender-group">
             <div class="input-gender">
-              <label for = "genero"> Masculino</label>
-              <input id="genero" type="radio" name="genero" placeholder="genero" required>
+              <label for="generoM"> Masculino</label>
+              <input id="generoM" type="radio" name="genero" value="Masculino" required>
             </div>
             <div class="input-gender">
-              <label for = "genero"> Femenino</label>
-              <input id="genero" type="radio" name="genero" placeholder="genero" required>
+              <label for="generoF"> Feminino</label>
+              <input id="generoF" type="radio" name="genero" value="Feminino" required>
             </div>
           </div>
-
         </div>
 
-        <div class = "cadastrar-bottom"> 
-          <button a href="#"> Cadastrar
-          </button>
-  
+        <div class="cadastrar-bottom"> 
+          <button type="button" onclick="cadastrarPaciente()">Cadastrar</button>
         </div>
+      </div>
+    </form>
+
+    <div class="pacientes-cadastrados">
+      <h1>Pacientes Cadastrados</h1>
+      <ul id="listaPacientes"></ul>
+    </div>
+  </div>
 
         
 
@@ -93,31 +108,13 @@
 
   </div>
 
-  <container>
-    <div class="pacientes-cadastrados">
-      <h1> 
-        Pacientes Cadastrados
-      </h1>
-      <ListaPacientes/>
-    </div>
-  </container>
-  
- <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-
-<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
-
-<!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
-</head>
-<body onload="initializeApp()">
-  <script src="./pacientes.js">
+  <script src="/pacientes.js">
+    
   </script>
 
+  
 
+</head>
   
 
 </main>
