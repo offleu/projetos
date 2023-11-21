@@ -1,6 +1,7 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
+import { getDatabase, ref, push } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js';
 
-
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDABxRv7TeJCvrJqJxpdK-WAvqElPb8Ex0",
   authDomain: "site-maria-julia.firebaseapp.com",
   databaseURL: "https://site-maria-julia-default-rtdb.firebaseio.com",
@@ -10,21 +11,20 @@ var firebaseConfig = {
   appId: "1:641579312371:web:3e7abda6a092df4db58386",
   measurementId: "G-5WEYPJSCS3"
 };
-firebase.initializeApp(firebaseConfig);
-var database = firebase.database();
-var pacientesRef = database.ref('pacientes');
 
-
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const pacientesRef = ref(database, 'pacientes');
 
 function cadastrarPaciente() {
-  var nome = document.getElementById('primeironome').value;
-  var nascimento = document.getElementById('nascimento').value;
-  var cpf = document.getElementById('cpf').value;
-  var responsavel = document.getElementById('responsavel').value;
-  var telefoneresponsavel = document.getElementById('telefoneresponsavel').value;
-  var genero = document.querySelector('input[name="genero"]:checked').value;
+  const nome = document.getElementById('primeironome').value;
+  const nascimento = document.getElementById('nascimento').value;
+  const cpf = document.getElementById('cpf').value;
+  const responsavel = document.getElementById('responsavel').value;
+  const telefoneresponsavel = document.getElementById('telefoneresponsavel').value;
+  const genero = document.querySelector('input[name="genero"]:checked').value;
 
-  pacientesRef.push({
+  push(pacientesRef, {
     nome: nome,
     nascimento: nascimento,
     cpf: cpf,
