@@ -8,7 +8,8 @@
     <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
-    <script src="/pacientes.js" type="module"></script>  
+    <script src="/database.js" type="module"></script>  
+    <script src="/cadastrarpaciente.js" type="module"></script>  
     <script type="text/javascript"></script>
     <title>Arquivos</title>
 </head>
@@ -79,7 +80,7 @@
         </div>
 
         <div class="cadastrar-bottom"> 
-          <button type="button" onclick="cadastrarPaciente()">Cadastrar</button>
+          <button id="buttoncadastro" type="button">Cadastrar</button>
         </div>
       </div>
     </form>
@@ -89,6 +90,8 @@
       <ul id="listaPacientes"></ul>
     </div>
   </div>
+
+
 
   
 
