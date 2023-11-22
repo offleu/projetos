@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-I/xqB5K8RfheZrZWVY5l4FfkWCOZhrfFXnT5CqQaLZcTQpLfjXJ29B7EpiBXhOBVz2NkBxRv+7XWoQEGv6NO+hA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <script src="/database.js" type="module"></script>  
+    <script src="/cadastrarpaciente.js" type="module"></script>  
+    <script type="text/javascript"></script>
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
+    <title>Arquivos</title>
+</head>
+<body>
+
+<!-- Cabeçalho -->
+<header>
+    <p>Login | Logout</p>
+</header>
+
+<!-- Menu lateral -->
+<nav>
+
+    <ul>    
+      <li><a href="/pacientes/pacientes.html"><i class="fas fa-user-plus"></i> Paciente</a></li>
+      <li><a href="/anamnese.html"><i class="fas fa-file-medical"></i> Anamnese</a></li>
+      <li><a href="/laudos.html"><i class="fas fa-file-alt"></i> Laudos</a></li>
+      <li><a href="/textoeatestado.html"><i class="fas fa-file-signature"></i> Textos e Atestado</a></li>
+      <li><a href="/acompanhamento.html"><i class="fas fa-chart-line"></i> Acompanhamento</a></li>
+      <li><a href="/agendamento.html"><i class="fas fa-calendar-alt"></i> Agendamento</a></li>
+      <li><a href="/arquivos.html"><i class="fas fa-file-archive"></i> Arquivos</a></li>
+  </ul>
+    </ul>
+</nav>
+
+<!-- Conteúdo principal -->
+<main>
+  <div class="form">
+    <form action="">
+      <div class="form-header">
+        <div class="title">
+          <h1>
+            1. Informações Pessoais
+          </h1>
+        </div>
+
+        <div class="input-group">
+          <div class="input-box">
+            <label for="primeironome"> Nome</label>
+            <input id="primeironome" type="text" name="primeironome" placeholder="Nome do paciente" required>
+          </div>
+          <div class="input-box">
+            <label for="naturalidade"> Naturalidade</label>
+            <input id="naturalidade" type="text" name="naturalidade" placeholder="Naturalidade" required>
+          </div>
+          <div class="input-box">  
+            <label for="nascimento"> Nascimento</label>
+            <input id="nascimento" type="date" name="nascimento" placeholder="Data de Nascimento" required>
+          </div>
+          <div class="input-box">
+            <label for="cpf"> CPF</label>
+            <input id="cpf" type="text" name="cpf" placeholder="Digite o CPF(sem traço e ponto)" required>
+          </div>
+
+          <div class="input-box">
+            <label for="gender"> Gênero</label>
+            <select id="gender" name="gender" placeholder="Genero" required>
+              <option value="Masculino">Masculino</option>
+              <option value="Faminino">Faminino</option>
+              <option value="Agenero">Agenero</option>
+              <option value="Genero Fluido">Genero Fluido</option>
+              <option value="Não Binario">Não Binario</option> 
+              <option value="Transgenero">Transgenero</option> 
+              <option value="Prefere não informar">Prefere não informar</option>    
+            </select>  
+          </div>
+          <div class="input-box">
+            <label for="celular"> Celular</label>
+            <input id="celular" type="text" name="celular" placeholder="(__) _____-____" required>
+          </div>
+          <div class="input-box">
+            <label for="observacao"> Observação</label>
+            <input id="observacao" type="text" name="observacao" placeholder="Observação" required>
+          </div>
+
+
+
+        </div>
+
+        <div class="title">
+          <h1>
+            2. Financeiro
+          </h1>
+        </div>
+        <div class="input-box">
+          <label for="sessao"> Tipo de Sessão</label>
+          <select id="sessao" name="sessao" placeholder="Tipo de Sessão" required>
+            <option value="Anamnese">Anamnese</option>
+            <option value="Sessão">Sessão</option> 
+          </select>  
+        </div>
+        <div class="input-box">
+          <label for="valor"> Valor</label>
+          <input id="valor" type="text" step="0.01" name="valor" min="0.01" placeholder="R$ 0.00" required>
+        </div>
+
+        <div class="title">
+          <h1>
+            3. Responsaveis
+          </h1>
+        </div>
+        <div class="input-box">
+          <label for="responsavel"> Responsavel</label>
+          <input id="responsavel" type="text" name="responsavel" placeholder="Nome do responsavel" required>
+        </div>
+        <div class="input-box">
+          <label for="telefoneresponsavel"> Telefone do Responsavel</label>
+          <input id="telefoneresponsavel" type="tel" name="telefoneresponsavel" placeholder="Telefone do responsavel" required>
+        </div>
+      </div>
+
+        
+
+        <div class="cadastrar-bottom"> 
+          <button id="buttoncadastro" type="button">Cadastrar</button>
+        </div>
+      </div>
+    </form>
+
+
+
+  
+
+</main>
+
+</body>
+</html>

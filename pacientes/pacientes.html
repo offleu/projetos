@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-I/xqB5K8RfheZrZWVY5l4FfkWCOZhrfFXnT5CqQaLZcTQpLfjXJ29B7EpiBXhOBVz2NkBxRv+7XWoQEGv6NO+hA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <script src="/database.js" type="module"></script>  
+    <script src="/cadastrarpaciente.js" type="module"></script>  
+    <script type="text/javascript"></script>
+    <title>Arquivos</title>
+</head>
+<body>
+
+<!-- Cabeçalho -->
+<header>
+    <p>Login | Logout</p>
+</header>
+
+<!-- Menu lateral -->
+<nav>
+
+    <ul>    
+      <li><a href="/pacientes/pacientes.html"><i class="fas fa-user-plus"></i> Paciente</a></li>
+      <li><a href="/anamnese.html"><i class="fas fa-file-medical"></i> Anamnese</a></li>
+      <li><a href="/laudos.html"><i class="fas fa-file-alt"></i> Laudos</a></li>
+      <li><a href="/textoeatestado.html"><i class="fas fa-file-signature"></i> Textos e Atestado</a></li>
+      <li><a href="/acompanhamento.html"><i class="fas fa-chart-line"></i> Acompanhamento</a></li>
+      <li><a href="/agendamento.html"><i class="fas fa-calendar-alt"></i> Agendamento</a></li>
+      <li><a href="/arquivos.html"><i class="fas fa-file-archive"></i> Arquivos</a></li>
+  </ul>
+    </ul>
+</nav>
+
+<!-- Conteúdo principal -->
+<main>
+    <div class="pacientes-cadastrados">
+      <h1>Listagem de Pacientes</h1>
+      <ul id="listaPacientes"></ul>
+    </div>
+    <div>
+        <a href="cadastrar.html"><button class="buttom-adicionarpaciente">
+            Adicionar Paciente
+        </button></a>
+        <a href="#"><button class="buttom-opcoes">
+            Opções
+        </button></a>
+    </div>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Nascimento</th>
+          <th>CPF</th>
+          <th>Responsável</th>
+          <th>Telefone do Responsável</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaPacientes">
+      </tbody>
+    </table>
+  </div>
+
+
+
+  
+
+</main>
+
+</body>
+</html>
