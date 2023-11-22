@@ -30,6 +30,7 @@ nav {
     transition: width 0.3s ease;
 }
 
+
 ul {
     list-style: none;
     margin-top: 20px;
@@ -77,6 +78,7 @@ nav li a:hover {
 
 
 ul {
+
     list-style: none;
 }
 
@@ -85,6 +87,7 @@ li {
 }
 
 a {
+
     text-decoration: none;  
     color: #333;
     font-weight: bold;

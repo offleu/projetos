@@ -16,27 +16,37 @@ header {
     color: #fff;
     text-align: right;
     padding: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Valor alto para garantir que fique acima de outros elementos */
 }
 
 /* Menu lateral */
 .nav-principal {
-    background-color: #eee;
+    background-color: #d3d3d3;
     padding: 15px;
-    width: 200px;
+    width: 180px;
     height: 100%;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 20px;
     transition: width 0.3s ease;
+    text-align: center; /* Centraliza o texto */
+}
+
+
+
+.nav-principal a {
+    font-size: 12px; /* Tamanho da fonte ajustável conforme necessário */
 }
 
 ul {
     list-style: none;
-    margin-top: 20px;
+    margin-top: 70px;
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     transition: background-color 0.3s ease;
 }
 
@@ -44,7 +54,7 @@ a {
     text-decoration: none;  
     color: #333;
     font-weight: bold;
-    padding: 10px;
+    padding: 20px;
     display: block;
     transition: color 0.3s ease;
 }
@@ -219,18 +229,19 @@ button:hover {
     height: 100%;
     width: 200px;
     position: fixed;
-    left: 200px; /* Adiciona um espaçamento ao lado do primeiro navbar */
-    top: 0;
+    left: 150px; /* Adiciona um espaçamento ao lado do primeiro navbar */
+    top: 60px;
     transition: left 0.3s ease; /* Adiciona transição para um movimento suave */
 }
 
 /* Estilos para o segundo navbar */
 .navbar-adicionar ul {
+    margin-top: 300px;
     list-style: none;
 }
 
 .navbar-adicionar li {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     transition: background-color 0.3s ease;
 }
 
