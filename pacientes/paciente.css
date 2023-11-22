@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Cabeçalho */
+header {
+    background-color: rgb(162, 0, 243);
+    color: #fff;
+    text-align: right;
+    padding: 20px;
+}
+
+/* Menu lateral */
+.nav-principal {
+    background-color: #eee;
+    padding: 15px;
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: width 0.3s ease;
+}
+
+ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+a {
+    text-decoration: none;  
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: rgb(162, 0, 243);
+}
+
+/* Conteúdo principal */
+main {
+    margin-left: 220px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+nav li:hover {
+    background-color: #f0efef;
+}
+
+nav li a:hover {
+    color: rgb(162, 0, 243);
+}
+
+/* Restante do código permanece o mesmo */
+
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;  
+    color: #333;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #555;
+}
+
+/* Conteúdo principal */
+main {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+/* Formulário */
+.form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.title {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.title h1::after {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 0.3rem;
+    background-color: rgba(49, 3, 125, 1);
+    margin: 0.5rem auto;
+    border-radius: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.input-box {
+    margin-bottom: 1.5rem;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.input-box input:hover {
+    background-color: #f0efef;
+}
+
+.input-box input:focus-visible {
+    outline: 1px solid rgba(49, 3, 125, 1);
+}
+
+.input-box label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2b2b2b;
+    margin-bottom: 0.5rem;
+}
+
+.input-box input::placeholder {
+    color: rgb(83, 83, 83);
+}
+
+
+.cadastrar-bottom button,
+.salvar-bottom button {
+    margin-top: 1.5rem;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(162, 0, 243);
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.cadastrar-bottom button:hover,
+.salvar-bottom button:hover {
+    background-color: rgb(106, 0, 159);
+}
+
+/* Tabela */
+table {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: rgb(162, 0, 243);
+    color: #fff;
+}
+
+td {
+    position: relative;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: rgb(106, 0, 159);
+    color: #fff;
+}
+
+/* Segundo Navbar */
+.navbar-adicionar {
+    background-color: rgb(206, 183, 255); /* Fundo roxo clarinho */
+    padding: 15px;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    left: 200px; /* Adiciona um espaçamento ao lado do primeiro navbar */
+    top: 0;
+    transition: left 0.3s ease; /* Adiciona transição para um movimento suave */
+}
+
+/* Estilos para o segundo navbar */
+.navbar-adicionar ul {
+    list-style: none;
+}
+
+.navbar-adicionar li {
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-adicionar a {
+    text-decoration: none;  
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.navbar-adicionar a:hover {
+    color: rgb(162, 0, 243);
+}
