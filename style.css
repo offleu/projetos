@@ -19,46 +19,37 @@ header {
 }
 
 /* Menu lateral */
-nav {
-    background-color: #eee;
-    padding: 15px;
-    width: 200px;
+.nav-principal {
+    background-color: #d3d3d3;
+    padding: 0px;
+    width: 80px;
     height: 100%;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 20px;
     transition: width 0.3s ease;
+    text-align: center; /* Centraliza o texto */
 }
 
+
+
+.nav-principal a {
+    font-size: 12px; /* Tamanho da fonte ajustável conforme necessário */
+}
 
 ul {
     list-style: none;
-    margin-top: 20px;
+    margin-top: 70px;
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     transition: background-color 0.3s ease;
 }
 
-a {
-    text-decoration: none;  
-    color: #333;
-    font-weight: bold;
-    padding: 10px;
-    display: block;
-    transition: color 0.3s ease;
-}
 
 a:hover {
     color: rgb(162, 0, 243);
-}
-
-/* Conteúdo principal */
-main {
-    margin-left: 220px;
-    padding: 20px;
-    transition: margin-left 0.3s ease;
 }
 
 /* Efeito de Hover para o Menu Lateral */
