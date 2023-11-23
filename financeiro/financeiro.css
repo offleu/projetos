@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Cabeçalho */
+header {
+    background-color: rgb(162, 0, 243);
+    color: #fff;
+    text-align: right;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Valor alto para garantir que fique acima de outros elementos */
+}
+
+/* Menu lateral */
+.nav-principal {
+    background-color: #d3d3d3;
+    padding: 0px;
+    width: 80px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 20px;
+    transition: width 0.3s ease;
+    text-align: center; /* Centraliza o texto */
+}
+
+
+
+.nav-principal a {
+    font-size: 12px; /* Tamanho da fonte ajustável conforme necessário */
+}
+
+ul {
+    list-style: none;
+    margin-top: 70px;
+}
+
+li {
+    margin-bottom: 0px;
+    transition: background-color 0.3s ease;
+}
+
+
+a:hover {
+    color: rgb(162, 0, 243);
+}
+
+
+ul {
+
+    list-style: none;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+
+    text-decoration: none;  
+    color: #333;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #555;
+}
+
+/* Conteúdo principal */
+main {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+
