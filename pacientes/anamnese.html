@@ -1,131 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <title>Anamnese</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/pacientes/paciente.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <script src="/database.js" type="module"></script>  
+    <script src="/cadastrarpaciente.js" type="module"></script>  
+    <script type="text/javascript"></script>
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
+    <title>Arquivos</title>
+</head>
+<body>
 
-        <!-- Cabeçalho -->
-        <header>
-            <p>Login | Logout</p>
-        </header>
+<!-- Cabeçalho -->
+<header>
+    <p>Login | Logout</p>
+</header>
 
-        <!-- Menu lateral -->
-        <nav>
-            <ul>
-                <li><a href="/pacientes/pacientes.html"><i class="fas fa-user-plus"></i> Paciente</a></li>
-                <li><a href="/anamnese.html"><i class="fas fa-file-medical"></i> Anamnese</a></li>
-                <li><a href="/laudos.html"><i class="fas fa-file-alt"></i> Laudos</a></li>
-                <li><a href="/textoeatestado.html"><i class="fas fa-file-signature"></i> Textos e Atestado</a></li>
-                <li><a href="/acompanhamento.html"><i class="fas fa-chart-line"></i> Acompanhamento</a></li>
-                <li><a href="/agendamento.html"><i class="fas fa-calendar-alt"></i> Agendamento</a></li>
-                <li><a href="/arquivos.html"><i class="fas fa-file-archive"></i> Arquivos</a></li>
-            </ul>
-        </nav>
-
-        <!-- Conteúdo principal -->
-        <main>
-            <div class=form>
-                <form>
-                    <div class="form-header">
-                        <div class="title">
-                            <h1>
-                                Anamnese
-                            </h1>
-
-                        </div>
-
-                        <div class="input-group">
-                            <div class="input-box">
-                                <label for="data"> Data</label>
-                                <input id="data" type="date" name="data"
-                                    placeholder="Data" required>
-                            </div>
-                            <div class="input-box">
-                                <label for="dadosanamnese"> Dados informador
-                                    por...</label>
-                                <input id="dadosanamnese" type="text"
-                                    name="dadosanamnese"
-                                    placeholder="Informações..." required>
-                            </div>
-                            <div class="input-box">
-                                <label for="cpf"> CPF</label>
-                                <input id="cpf" type="###.###.###-##" name="cpf"
-                                    placeholder="Digite o CPF(sem traço e ponto)"
-                                    required>
-                            </div>
-                            <div class="input-box">
-                                <label for="prontuario"> Prontuario </label>
-                                <input id="prontuario" type="number"
-                                    name="prontuario" placeholder="prontuario"
-                                    required>
-                            </div>
-                            <div class="input-box">
-                                <label for="nome"> Nome do Paciente</label>
-                                <input id="nome" type="text" name="name"
-                                    placeholder="Nome do Paciente" required>
-                            </div>
-                            <div class="input-box">
-                                <label for="nascimento"> Data de Nascimento</label>
-                                <input id="nascimento" type="date"
-                                    name="nascimento" placeholder="nascimento"
-                                    required>
-                            </div>
-                            <div class="input-box">
-                                <label for="idade"> Idade</label>
-                                <input id="idade" type="number" name="idade"
-                                    placeholder="idade" required>
-                            </div>
-                            <div class="input-box">
-                                <label for="pai"> Nome do Pai</label>
-                                <input id="pai" type="text" name="pai"
-                                    placeholder="Nome do Pai" required>
-                            </div>
-                            <div class="input-box">
-                                <label for="mae"> Nome da Mãe</label>
-                                <input id="mae" type="text" name="mae"
-                                    placeholder="Nome da Mãe" required>
-                            </div>
-                            <h1>
-                                <p>
-                                    Descrição
-                                </p>
-                            </h1>
+<!-- Menu lateral -->
+<nav class="nav-principal">
+    <ul>    
+      <li><a href="/pacientes/pacientes.html"><i class="fas fa-user-plus fa-2x"></i> <p>Paciente</p></a></li>
+      <li><a href="/laudos.html"><i class="fas fa-file-alt fa-2x" ></i> <p> Laudos</p></a></li>
+      <li><a href="/acompanhamento.html"><i class="fas fa-chart-line fa-2x"></i><p> Relatório</p></a></li>
+      <li><a href="/agenda/agendamento.html"><i class="fas fa-calendar-alt fa-2x"></i> <p>Agenda</p></a></li>
+      <li><a href="/arquivos.html"><i class="fas fa-file-archive fa-2x"></i><p> Arquivos</p></a></li>
+      <li><a href="/financeiro/financeiro.html"><i class="fas fa-money-bill-wave fa-2x"></i><p> Financeiro</p></a></li>
+  </ul>
+    </ul>
+</nav>
 
 
-                        </div>
-                        <div class="input-box">
-                            <label for="motivodaprocura"> Motivo da
-                                Procura?</label>
-                            <input id="motivodaprocura" type="text"
-                                name="motivodaprocura"
-                                placeholder="Motivo da procura..."
-                                required>
-                        </div>
-                        <div class="input-box">
-                            <label for="expectativa"> Qual espectativa?
-                            </label>
-                            <input id="expectativa" type="text"
-                                name="expectativa"
-                                placeholder="Qual espectativa? "
-                                required>
-                        </div>
-                        <div class="input-box">
-                            <label for="diagnostico"> Ja teve algum
-                                diagnóstico? Se sim qual? </label>
-                            <input id="diagnostico" type="text"
-                                name="diagnostico"
-                                placeholder="Qual diagnostico?" required>
-                        </div>
-                        <div class="salvar-bottom">
-                            <button a href="#"> Salvar
-                            </button>
+<!-- Conteúdo principal -->
+<main>
+  <nav class="navbar-adicionar">
+    <div id="perfil-img">
+      <!-- Adicione o elemento <label> para envolver o ícone e o botão -->
+      <label for="input-foto" id="trocar-foto-icon">
+        <i class="fa-solid fa-user fa-3x"></i><!-- Substitua 'fa-camera' pelo ícone desejado -->
+      </label>
+      <button id="trocar-foto">Trocar Foto</button>
+  </div>
+  
+  <!-- Adicione um input file para permitir a seleção de uma nova foto -->
+  <input type="file" id="input-foto" style="display: none;">
 
-                        </div>
-                    </main>
+    <ul>
+        <!-- Adicione mais itens conforme necessário -->
+        <li><a href="#"><i class="fa-solid fa-user"></i>Principal</a></li>
+        <li><a href="#"><i class="fa-solid fa-user"></i>Cadastro</a></li>
+        <li><a href="/pacientes/anamnese.html"><i class="fa-solid fa-circle-question"></i>Anamnese</a></li>
+        <li><a href="#"><i class="fa-solid fa-comment"></i>Sessões</a></li>
+        <li><a href="#"><i class="fa-solid fa-folder-open"></i>Documentos</a></li>
+        <li><a href="#"><i class="fa-solid fa-gear"></i>Preferências</a></li>
+    </ul>
+  </nav>
+  
+</nav>
+<div class=form>
+    <form>
+        <div class="form-header">
+            <div class="title">
+                <h1>
+                    Anamnese
+                </h1>
 
-                </body>
-            </html>
+            </div>
+
+            <div class="input-group">
+                <div class="input-box">
+                    <label for="data"> Data</label>
+                    <input id="data" type="date" name="data" placeholder="Data" required>
+                </div>
+                <div class="input-box">
+                    <label for="dadosanamnese"> Dados informador
+                        por...</label>
+                    <input id="dadosanamnese" type="text" name="dadosanamnese" placeholder="Informações..." required>
+                </div>
+                <div class="input-box">
+                    <label for="cpf"> CPF</label>
+                    <input id="cpf" type="###.###.###-##" name="cpf" placeholder="Digite o CPF(sem traço e ponto)"
+                        required>
+                </div>
+                <div class="input-box">
+                    <label for="prontuario"> Prontuario </label>
+                    <input id="prontuario" type="number" name="prontuario" placeholder="prontuario" required>
+                </div>
+                <div class="input-box">
+                    <label for="nome"> Nome do Paciente</label>
+                    <input id="nome" type="text" name="name" placeholder="Nome do Paciente" required>
+                </div>
+                <div class="input-box">
+                    <label for="nascimento"> Data de Nascimento</label>
+                    <input id="nascimento" type="date" name="nascimento" placeholder="nascimento" required>
+                </div>
+                <div class="input-box">
+                    <label for="idade"> Idade</label>
+                    <input id="idade" type="number" name="idade" placeholder="idade" required>
+                </div>
+                <div class="input-box">
+                    <label for="pai"> Nome do Pai</label>
+                    <input id="pai" type="text" name="pai" placeholder="Nome do Pai" required>
+                </div>
+                <div class="input-box">
+                    <label for="mae"> Nome da Mãe</label>
+                    <input id="mae" type="text" name="mae" placeholder="Nome da Mãe" required>
+                </div>
+                <h1>
+                    <p>
+                        Descrição
+                    </p>
+                </h1>
+
+
+            </div>
+            <div class="input-box">
+                <label for="motivodaprocura"> Motivo da
+                    Procura?</label>
+                <input id="motivodaprocura" type="text" name="motivodaprocura" placeholder="Motivo da procura..."
+                    required>
+            </div>
+            <div class="input-box">
+                <label for="expectativa"> Qual espectativa?
+                </label>
+                <input id="expectativa" type="text" name="expectativa" placeholder="Qual espectativa? " required>
+            </div>
+            <div class="input-box">
+                <label for="diagnostico"> Ja teve algum
+                    diagnóstico? Se sim qual? </label>
+                <input id="diagnostico" type="text" name="diagnostico" placeholder="Qual diagnostico?" required>
+            </div>
+            <div class="salvar-bottom">
+                <button a href="#"> Salvar
+                </button>
+
+            </div>
+  
+
+  
+
+  
+
+</main>
+
+
+
+</body>
+</html>
