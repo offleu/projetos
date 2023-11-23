@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/pacientes/paciente.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <script src="/database.js" type="module"></script>  
+    <script src="/cadastrarpaciente.js" type="module"></script>  
+    <script type="text/javascript"></script>
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
+    <title>Dashboard Paciente</title>
+</head>
+<body>
+
+<!-- Cabeçalho -->
+<header>
+    <p>Login | Logout</p>
+</header>
+
+<!-- Menu lateral -->
+<nav class="nav-principal">
+    <ul>    
+      <li><a href="/pacientes/pacientes.html"><i class="fas fa-user-plus fa-2x"></i> <p>Paciente</p></a></li>
+      <li><a href="/laudos.html"><i class="fas fa-file-alt fa-2x" ></i> <p> Laudos</p></a></li>
+      <li><a href="/acompanhamento.html"><i class="fas fa-chart-line fa-2x"></i><p> Relatório</p></a></li>
+      <li><a href="/agenda/agendamento.html"><i class="fas fa-calendar-alt fa-2x"></i> <p>Agenda</p></a></li>
+      <li><a href="/arquivos.html"><i class="fas fa-file-archive fa-2x"></i><p> Arquivos</p></a></li>
+      <li><a href="/financeiro/financeiro.html"><i class="fas fa-money-bill-wave fa-2x"></i><p> Financeiro</p></a></li>
+  </ul>
+    </ul>
+</nav>
+
+
+<!-- Conteúdo principal -->
+<main>
+  <nav class="navbar-adicionar">
+    <div id="perfil-img">
+      <!-- Adicione o elemento <label> para envolver o ícone e o botão -->
+      <label for="input-foto" id="trocar-foto-icon">
+        <i class="fa-solid fa-user fa-3x"></i><!-- Substitua 'fa-camera' pelo ícone desejado -->
+      </label>
+      <button class="button-perfil" id="trocar-foto"><i class="fa-solid fa-camera fa-3x"></i></button>
+  </div>
+  
+  <!-- Adicione um input file para permitir a seleção de uma nova foto -->
+  <input type="file" id="input-foto" style="display: none;">
+
+    <ul>
+        <!-- Adicione mais itens conforme necessário -->
+        <li><a href="/pacientes/principalpaciente.html"><i class="fa-solid fa-user"></i>Principal</a></li>
+        <li><a href="#"><i class="fa-solid fa-user"></i>Cadastro</a></li>
+        <li><a href="/pacientes/anamnese.html"><i class="fa-solid fa-circle-question"></i>Anamnese</a></li>
+        <li><a href="#"><i class="fa-solid fa-comment"></i>Sessões</a></li>
+        <li><a href="#"><i class="fa-solid fa-folder-open"></i>Documentos</a></li>
+        <li><a href="#"><i class="fa-solid fa-gear"></i>Preferências</a></li>
+    </ul>
+  </nav>
+
+
+</main>
+
+
+
+</body>
+</html>
