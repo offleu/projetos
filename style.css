@@ -16,6 +16,9 @@ header {
     color: #fff;
     text-align: right;
     padding: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Valor alto para garantir que fique acima de outros elementos */
 }
 
 /* Menu lateral */
@@ -51,21 +54,6 @@ li {
 a:hover {
     color: rgb(162, 0, 243);
 }
-
-/* Efeito de Hover para o Menu Lateral */
-nav:hover {
-    width: 240px;
-}
-
-nav li:hover {
-    background-color: #f0efef;
-}
-
-nav li a:hover {
-    color: rgb(162, 0, 243);
-}
-
-/* Restante do código permanece o mesmo */
 
 
 ul {
@@ -156,21 +144,6 @@ main {
     color: rgb(83, 83, 83);
 }
 
-.gender-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-}
-
-.input-gender input {
-    margin-right: 0.5rem;
-}
-
-.input-gender label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #2b2b2b;
-}
 
 .cadastrar-bottom button,
 .salvar-bottom button {

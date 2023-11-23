@@ -39,6 +39,17 @@
 <!-- Conteúdo principal -->
 <main>
   <nav class="navbar-adicionar">
+    <div id="perfil-img">
+      <!-- Adicione o elemento <label> para envolver o ícone e o botão -->
+      <label for="input-foto" id="trocar-foto-icon">
+        <i class="fa-solid fa-user fa-3x"></i><!-- Substitua 'fa-camera' pelo ícone desejado -->
+      </label>
+      <button id="trocar-foto">Trocar Foto</button>
+  </div>
+  
+  <!-- Adicione um input file para permitir a seleção de uma nova foto -->
+  <input type="file" id="input-foto" style="display: none;">
+
     <ul>
         <!-- Adicione mais itens conforme necessário -->
         <li><a href="#"><i class="fa-solid fa-user"></i>Principal</a></li>
@@ -47,9 +58,6 @@
         <li><a href="#"><i class="fa-solid fa-comment"></i>Sessões</a></li>
         <li><a href="#"><i class="fa-solid fa-folder-open"></i>Documentos</a></li>
         <li><a href="#"><i class="fa-solid fa-gear"></i>Preferências</a></li>
-      
-        
-
     </ul>
   </nav>
   
@@ -146,11 +154,13 @@
       </div>
     </form>
 
-
+  
 
   
 
 </main>
+
+
 
 </body>
 </html>
