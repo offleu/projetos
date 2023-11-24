@@ -207,7 +207,8 @@ td {
     position: relative;
 }
 
-button {
+
+button cadastrar-bottom {
     border: none;
     border-radius: 5px;
     padding: 8px 12px;
@@ -215,10 +216,21 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+button cadastrar-bottom:hover {
     background-color: rgb(106, 0, 159);
-    color: #fff;
+    color: #d1d1d1;
 }
+
+.button-perfil {
+    border-radius: 100%;
+    width: 165px;
+    height: 165px;
+    margin-bottom: -5px;
+    border: none;
+    color:  #9b9b9b;;
+
+}
+
 
 /* Segundo Navbar */
 .navbar-adicionar {
@@ -281,6 +293,7 @@ button:hover {
     
 }
 
+<<<<<<< HEAD
 
 .modal {
     display: none;
@@ -321,3 +334,15 @@ button:hover {
 #input-foto-modal {
     margin: 10px 0;
 }
+=======
+#perfil-img:hover #trocar-foto {
+    opacity: 1; /* Torna o botão visível ao passar o mouse sobre o contêiner da foto */
+}
+
+.perfil-img :hover {
+    color: aqua;
+
+}
+
+
+>>>>>>> 98f4627719d5fb29a3b6f1df020eef449fd03149
