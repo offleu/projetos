@@ -11,16 +11,13 @@
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
     <script src="/database.js" type="module"></script>  
     <script src="/cadastrarpaciente.js" type="module"></script>  
-<<<<<<< HEAD
     <script src="/pacientes/trocarfoto.js" type="module"></script>
     <script type="text/javascript"></script>
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
     <title>Arquivos</title>
-=======
     <script type="text/javascript"></script>
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
     <title>Dashboard Paciente</title>
->>>>>>> 98f4627719d5fb29a3b6f1df020eef449fd03149
 </head>
 <body>
 
@@ -51,27 +48,13 @@
       <label for="input-foto" id="trocar-foto-icon">
         <i class="fa-solid fa-user fa-3x"></i><!-- Substitua 'fa-camera' pelo ícone desejado -->
       </label>
-<<<<<<< HEAD
-=======
-      <button class="button-perfil" id="trocar-foto"><i class="fa-solid fa-camera fa-3x"></i></button>
->>>>>>> 98f4627719d5fb29a3b6f1df020eef449fd03149
-  </div>
+    </div>
   
   <!-- Adicione um input file para permitir a seleção de uma nova foto -->
   <input type="file" id="input-foto" style="display: none;">
 
-<<<<<<< HEAD
-  <div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="fecharModal()">&times;</span>
-        <h2>Escolher Foto</h2>
-        <input type="file" id="input-foto-modal" accept="image/*">
-        <button onclick="uploadFoto()">Enviar</button>
-    </div>
-</div>
 
-=======
->>>>>>> 98f4627719d5fb29a3b6f1df020eef449fd03149
+
     <ul>
         <!-- Adicione mais itens conforme necessário -->
         <li><a href="/pacientes/principalpaciente.html"><i class="fa-solid fa-user"></i>Principal</a></li>
@@ -82,114 +65,47 @@
         <li><a href="#"><i class="fa-solid fa-gear"></i>Preferências</a></li>
     </ul>
   </nav>
-<<<<<<< HEAD
-  
-</nav>
-  <div class="form">  
-    <form action="">
-      <div class="form-header">
-        <div class="title">
-          <h1>
-            1. Informações Pessoais
-          </h1>
+
+  <div class="dados-paciente">
+    <div class="dados-paciente-text">
+      <h2 class="titulo-dados-paciente">Dados Principais</h2>
+        <div class="dados">
+          <p> Nome </p>
+          <p> - -</p>
         </div>
-
-        <div class="input-group">
-          <div class="input-box">
-            <label for="primeironome"> Nome</label>
-            <input id="primeironome" type="text" name="primeironome" placeholder="Nome do paciente" required>
-          </div>
-          <div class="input-box">
-            <label for="naturalidade"> Naturalidade</label>
-            <input id="naturalidade" type="text" name="naturalidade" placeholder="Naturalidade" required>
-          </div>
-          <div class="input-box">  
-            <label for="nascimento"> Nascimento</label>
-            <input id="nascimento" type="date" name="nascimento" placeholder="Data de Nascimento" required>
-          </div>
-          <div class="input-box">
-            <label for="cpf"> CPF</label>
-            <input id="cpf" type="text" name="cpf" placeholder="Digite o CPF(sem traço e ponto)" required>
-          </div>
-
-          <div class="input-box">
-            <label for="gender"> Gênero</label>
-            <select id="gender" name="gender" placeholder="Genero" required>
-              <option value="Masculino">Masculino</option>
-              <option value="Faminino">Faminino</option>
-              <option value="Agenero">Agenero</option>
-              <option value="Genero Fluido">Genero Fluido</option>
-              <option value="Não Binario">Não Binario</option> 
-              <option value="Transgenero">Transgenero</option> 
-              <option value="Prefere não informar">Prefere não informar</option>    
-            </select>  
-          </div>
-          <div class="input-box">
-            <label for="celular"> Celular</label>
-            <input id="celular" type="text" name="celular" placeholder="(__) _____-____" required>
-          </div>
-          <div class="input-box">
-            <label for="observacao"> Observação</label>
-            <input id="observacao" type="text" name="observacao" placeholder="Observação" required>
-          </div>
-
-
-
+        <div class="dados">
+          <p> Telefone </p>
+          <p> - -</p>
         </div>
-
-        <div class="title">
-          <h1>
-            2. Financeiro
-          </h1>
+        <div class="dados">
+          <p> E-mail </p>
+          <p> - -</p>
         </div>
-        <div class="input-box">
-          <label for="sessao"> Tipo de Sessão</label>
-          <select id="sessao" name="sessao" placeholder="Tipo de Sessão" required>
-            <option value="Anamnese">Anamnese</option>
-            <option value="Sessão">Sessão</option> 
-          </select>  
+        <div class="dados">
+          <p> Data de nascimento </p>
+          <p> - -</p>
         </div>
-        <div class="input-box">
-          <label for="valor"> Valor</label>
-          <input id="valor" type="text" step="0.01" name="valor" min="0.01" placeholder="R$ 0.00" required>
+        <h2 class="titulo-dados-paciente">Dados Secundários</h2>
+        <div class="dados">
+          <p> Responsavel </p>
+          <p> - -</p>
         </div>
-
-        <div class="title">
-          <h1>
-            3. Responsaveis
-          </h1>
+        <div class="dados">
+          <p> Tipo de Sessão </p>
+          <p> - -</p>
         </div>
-        <div class="input-box">
-          <label for="responsavel"> Responsavel</label>
-          <input id="responsavel" type="text" name="responsavel" placeholder="Nome do responsavel" required>
+        <div class="dados">
+          <p> Valor por Sessão </p>
+          <p> - -</p>
         </div>
-        <div class="input-box">
-          <label for="telefoneresponsavel"> Telefone do Responsavel</label>
-          <input id="telefoneresponsavel" type="tel" name="telefoneresponsavel" placeholder="Telefone do responsavel" required>
-        </div>
-      </div>
-
-        
-
-        <div class="cadastrar-bottom"> 
-          <button id="buttoncadastro" type="button">Cadastrar</button>
-        </div>
-      </div>
-    </form>
-
+    </div>
+  </div>
   
 
+
   
-=======
-
-
-
-    
-</div>
-
->>>>>>> 98f4627719d5fb29a3b6f1df020eef449fd03149
-
 </main>
+
 
 
 
