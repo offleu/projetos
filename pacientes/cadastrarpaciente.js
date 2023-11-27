@@ -8,19 +8,29 @@ button.addEventListener('click', function () {
 
 function cadastrarPaciente() {
   const nome = document.getElementById('primeironome').value;
+  const naturalidade = document.getElementById('naturalidade').value;
   const nascimento = document.getElementById('nascimento').value;
   const cpf = document.getElementById('cpf').value;
+  const celular = document.getElementById('celular').value;
+  const observacao = document.getElementById('observacao').value;
+  const sessao = document.getElementById('sessao').value;
+  const valor = document.getElementById('valor').value;
   const responsavel = document.getElementById('responsavel').value;
   const telefoneresponsavel = document.getElementById('telefoneresponsavel').value;
-  const genero = document.querySelector('input[name="genero"]:checked').value;
+
+  const gender = document.querySelector('input[name="gender"]:checked').value;
 
   push(pacientesRef, {
     nome: nome,
+    naturalidade: naturalidade,
     nascimento: nascimento,
     cpf: cpf,
+    celular: celular,
+    observacao: observacao,
+    sessao: sessao,
+    valor: valor,
     responsavel: responsavel,
     telefoneresponsavel: telefoneresponsavel,
-    genero: genero
   });
 
   alert("Paciente cadastrado com sucesso!");
@@ -30,11 +40,16 @@ function cadastrarPaciente() {
 
 function limparFormulario() {
   document.getElementById('primeironome').value = '';
+  document.getElementById('naturalidade').value = '';
   document.getElementById('nascimento').value = '';
   document.getElementById('cpf').value = '';
+  document.getElementById('celular').value = '';
+  document.getElementById('observacao').value = '';
+  document.getElementById('sessao').value = '';
+  document.getElementById('valor').value = '';
   document.getElementById('responsavel').value = '';
   document.getElementById('telefoneresponsavel').value = '';
-  document.querySelector('input[name="genero"]:checked').checked = false;
+  document.querySelector('input[name="gender"]:checked').checked = false;
 }
 
 function carregarPacientes() {

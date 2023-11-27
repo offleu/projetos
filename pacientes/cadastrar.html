@@ -10,11 +10,11 @@
     <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
     <script src="/database.js" type="module"></script>  
-    <script src="/cadastrarpaciente.js" type="module"></script>  
+    <script src="/pacientes/cadastrarpaciente.js" type="module"></script>  
     <script src="/pacientes/trocarfoto.js" type="module"></script>
     <script type="text/javascript"></script>
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
-    <title>Arquivos</title>
+    <title>Cadastrar Paciente</title>
     <script type="text/javascript"></script>
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
     <title>Dashboard Paciente</title>
@@ -79,24 +79,24 @@
         <div class="input-group">
           <div class="input-box">
             <label for="primeironome"> Nome</label>
-            <input id="primeironome" type="text" name="primeironome" placeholder="Nome do paciente" required>
+            <input id="primeironome" type="text" name="primeironome" placeholder="Nome do paciente" size="50" required>
           </div>
           <div class="input-box">
             <label for="naturalidade"> Naturalidade</label>
-            <input id="naturalidade" type="text" name="naturalidade" placeholder="Naturalidade" required>
+            <input id="naturalidade" type="text" name="naturalidade" placeholder="Naturalidade" size="20" required>
           </div>
           <div class="input-box">  
             <label for="nascimento"> Nascimento</label>
-            <input id="nascimento" type="date" name="nascimento" placeholder="Data de Nascimento" required>
+            <input id="nascimento" type="date" name="nascimento" placeholder="Data de Nascimento"  required>
           </div>
           <div class="input-box">
             <label for="cpf"> CPF</label>
-            <input id="cpf" type="text" name="cpf" placeholder="Digite o CPF(sem traço e ponto)" required>
+            <input id="cpf" type="text" name="cpf" placeholder="Digite o CPF(sem traço e ponto)" size="20" required>
           </div>
 
           <div class="input-box">
             <label for="gender"> Gênero</label>
-            <select id="gender" name="gender" placeholder="Genero" required>
+            <select id="gender" name="gender" placeholder="Genero"  required>
               <option value="Masculino">Masculino</option>
               <option value="Faminino">Faminino</option>
               <option value="Agenero">Agenero</option>
@@ -108,11 +108,11 @@
           </div>
           <div class="input-box">
             <label for="celular"> Celular</label>
-            <input id="celular" type="text" name="celular" placeholder="(__) _____-____" required>
+            <input id="celular" type="text" name="celular" placeholder="(__) _____-____" size="8" required>
           </div>
           <div class="input-box">
             <label for="observacao"> Observação</label>
-            <input id="observacao" type="text" name="observacao" placeholder="Observação" required>
+            <input id="observacao" type="text" name="observacao" placeholder="Observação" size="100"  required>
           </div>
 
 
@@ -133,7 +133,7 @@
         </div>
         <div class="input-box">
           <label for="valor"> Valor</label>
-          <input id="valor" type="text" step="0.01" name="valor" min="0.01" placeholder="R$ 0.00" required>
+          <input id="valor" type="text" step="0.01" name="valor" min="0.01" placeholder="R$ 0.00" size="10" required>
         </div>
 
         <div class="title">
@@ -143,11 +143,11 @@
         </div>
         <div class="input-box">
           <label for="responsavel"> Responsavel</label>
-          <input id="responsavel" type="text" name="responsavel" placeholder="Nome do responsavel" required>
+          <input id="responsavel" type="text" name="responsavel" placeholder="Nome do responsavel" size="20" required>
         </div>
         <div class="input-box">
           <label for="telefoneresponsavel"> Telefone do Responsavel</label>
-          <input id="telefoneresponsavel" type="tel" name="telefoneresponsavel" placeholder="Telefone do responsavel" required>
+          <input id="telefoneresponsavel" type="tel" name="telefoneresponsavel" placeholder="Telefone do responsavel" size="20" required>
         </div>
       </div>
 
