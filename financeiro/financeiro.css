@@ -18,6 +18,7 @@ header {
     padding: 20px;
     position: fixed;
     width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000; /* Valor alto para garantir que fique acima de outros elementos */
 }
 
@@ -38,6 +39,8 @@ header {
 
 .nav-principal a {
     font-size: 12px; /* Tamanho da fonte ajustável conforme necessário */
+    margin: 3px;
+    margin-top: 20px;
 }
 
 ul {
@@ -45,9 +48,12 @@ ul {
     margin-top: 70px;
 }
 
-li {
+.nav-principal li {
     margin-bottom: 0px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; 
+    
+    
+
 }
 
 
@@ -55,9 +61,25 @@ a:hover {
     color: rgb(162, 0, 243);
 }
 
+/* Conteúdo principal */
+main {
+    margin-left: 220px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+nav li:hover {
+    background-color: #f0efef;
+}
+
+nav li a:hover {
+    color: rgb(162, 0, 243);
+}
+
+/* Restante do código permanece o mesmo */
+
 
 ul {
-
     list-style: none;
 }
 
@@ -66,7 +88,6 @@ li {
 }
 
 a {
-
     text-decoration: none;  
     color: #333;
     font-weight: bold;
@@ -82,4 +103,50 @@ main {
     padding: 20px;
 }
 
+/* Formulário */
+.painel-financeiro-titulo {
+    margin-top: 60px;
+    margin-left: 80px;    
 
+
+}
+
+.painel-financeiro{
+    display: flex;
+    align-items: center ;
+    background-color: #ebeaea;
+    margin-top: 30px;
+    margin-left: 80px;
+    height: 250px;
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+
+.resultado-previsto {
+    border: 2px solid rgb(74, 74, 74);
+    margin-top: 20px;
+    width: 400px;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.resultadoprevisto {
+    margin-top: -5px;
+    margin-right: 20px;
+}
+
+.receita-prevista{
+    border: 2px solid rgb(0, 255, 38);
+    margin-top: -162px;
+    width: 400px;
+    border-radius: 5px;
+    padding: 30px;
+    margin-left: 420px;
+}
+
+.receitaprevista{
+    margin-top: -5px;
+    margin-right: 20px;
+}
