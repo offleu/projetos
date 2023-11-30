@@ -103,86 +103,6 @@ main {
     padding: 20px;
 }
 
-/* Formulário */
-.form {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-}
-
-.title {
-    margin: 3rem 0;
-    text-align: center;
-}
-
-.title h1::after {
-    content: '';
-    display: block;
-    width: 3px;
-    height: 0.3rem;
-    background-color: rgba(49, 3, 125, 1);
-    margin: 0.5rem auto;
-    border-radius: 10px;
-}
-
-.input-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 1rem;
-}
-
-.input-box {
-    margin-bottom: 1.5rem;
-}
-
-.input-box input {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.input-box input:hover {
-    background-color: #f0efef;
-}
-
-.input-box input:focus-visible {
-    outline: 1px solid rgba(49, 3, 125, 1);
-}
-
-.input-box label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #2b2b2b;
-    margin-bottom: 0.5rem;
-}
-
-.input-box input::placeholder {
-    color: rgb(83, 83, 83);
-}
-
-
-.cadastrar-bottom button,
-.salvar-bottom button {
-    margin-top: 1.5rem;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: rgb(162, 0, 243);
-    color: #fff;
-    transition: background-color 0.3s;
-}
-
-.cadastrar-bottom button:hover,
-.salvar-bottom button:hover {
-    background-color: rgb(106, 0, 159);
-}
-
 /* Tabela */
 table {
     border-radius: 10px;
@@ -208,227 +128,38 @@ td {
 }
 
 
-button cadastrar-bottom {
+.buttom-adicionarpaciente{
+    margin-top: 1.5rem;
     border: none;
+    padding: 0.8rem 1.5rem;
     border-radius: 5px;
-    padding: 8px 12px;
     cursor: pointer;
+    background-color: rgb(162, 0, 243);
+    color: #fff;
     transition: background-color 0.3s;
+
 }
 
-button cadastrar-bottom:hover {
-    background-color: rgb(106, 0, 159);
-    color: #d1d1d1;
-}
-
-.button-perfil {
-    border-radius: 100%;
-    width: 165px;
-    height: 165px;
-    margin-bottom: -5px;
+.buttom-opcoes {
+    margin-top: 1.5rem;
     border: none;
-    color:  #9b9b9b;;
-
-}
-
-
-/* Segundo Navbar */
-.navbar-adicionar {
-    background-color: rgb(206, 183, 255); /* Fundo roxo clarinho */
-    padding: 15px;
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    left: 80px; /* Adiciona um espaçamento ao lado do primeiro navbar */
-    top: 59px;
-    transition: left 0.3s ease; /* Adiciona transição para um movimento suave */
-}
-
-/* Estilos para o segundo navbar */
-.navbar-adicionar ul {
-    margin-top: 40px;
-    list-style: none;
-}
-
-.navbar-adicionar li {
-    margin-bottom: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.navbar-adicionar a {
-    text-decoration: none;  
-    color: #333;
-    font-weight: bold;
-    padding: 10px;
-    display: block;
-    transition: color 0.3s ease;
-}
-
-.navbar-adicionar a:hover {
-    color: rgb(162, 0, 243);
-}
-
-#perfil-img {
-    width: 165px;
-    height: 165px;
-    border-radius: 50%;
-    background-color: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #555;
-    margin-top: 30px;
-    position: relative; /* Adiciona posição relativa para permitir posicionamento absoluto do botão */
-}
-
-#trocar-foto {
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
     cursor: pointer;
-    position: absolute;
-    bottom: 5px; /* Posiciona o botão na parte inferior do contêiner */
-    left: 50%;
-    transform: translateX(-50%); /* Centraliza horizontalmente */
-    opacity: 0; /* Inicialmente, torna o botão invisível */
-    transition: opacity 0.3s ease;
-    
-}
-
-.dados-paciente {
-    margin-left: 40px;
-    margin-top: 38px;
-    width: 20%;
-    height: 1000px;
-    background-color: #ededed;
-    position: absolute;
-}
-
-.dados-paciente-text {
-    margin-top: 38px;
-    margin-left: 25px;
-}
-
-.dados {
-    padding: 20px;
-}
-
-.titulo-dados-paciente {
-    margin-top: 50px;
+    background-color: rgb(162, 0, 243);
+    color: #fff;
+    transition: background-color 0.3s;
 
 }
 
-.dados-sessao {
-    display: flex;
-    border-radius: 10px;
-    margin-top: 60px;
-    height: 200px;
-    margin-left: 400px;
-    background-color: #ebeaea;
-    flex-direction: row;
-    align-items: center;
-    padding: 80px;
+.buttom-adicionarpaciente:hover{
+    background-color: rgb(106, 0, 159);
 }
 
-.proxima-sessao {
-    border-radius: 10px;
-    height: 150px;
-    margin-left: 20px;
-    width: 150px;
-    background-color: #c3c3c3;
-    align-items: center;
+.buttom-opcoes:hover {
+    background-color: rgb(106, 0, 159);
 }
 
-.proxima-sessao-texto{
-    display: flex;
-    padding: 15px;
-    margin-bottom: 70px;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sessoes-presentes {
-    border-radius: 10px;
-    height: 150px;
-    margin-left: 20px;
-    width: 150px;
-    background-color: #c3c3c3;
-    align-items: center;
-
-}
-
-.sessoes-presentes-texto {
-    display: flex;
-    padding: 15px;
-    margin-bottom: 70px;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.sessoes-inadiplente {
-    border-radius: 10px;
-    height: 150px;
-    margin-left: 20px;
-    width: 150px;
-    background-color: #c3c3c3;
-    align-items: center;
-
-}
-
-.sessoes-inadiplente-texto {
-    display: flex;
-    padding: 15px;
-    margin-bottom: 70px;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.sessoes-canceladas {
-    border-radius: 10px;
-    height: 150px;
-    margin-left: 20px;
-    width: 150px;
-    background-color: #c3c3c3;
-    align-items: center;
-
-}
-
-.sessoes-canceladas-texto {
-    display: flex;
-    padding: 15px;
-    margin-bottom: 70px;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.porcentagem-presenca {
-    border-radius: 10px;
-    height: 150px;
-    margin-left: 20px;
-    width: 150px;
-    background-color: #c3c3c3;
-    align-items: center;
-
-}
-
-.porcentagem-presenca-texto {
-    display: flex;
-    padding: 15px;
-    margin-bottom: 70px;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.dados-ultimas-atividades {
-    display: flex;
-    border-radius: 10px;
-    margin-top: 15px;
-    height: 450px;
-    margin-left: 400px;
-    background-color: #ebeaea;
-    flex-direction: row;
-    align-items: center;
-    padding: 80px;
+.buttom-adicionarpaciente :active{
+    background-color: rgb(106, 0, 159);
 }
