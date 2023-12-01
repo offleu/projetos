@@ -5,19 +5,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
+const cors = require('cors'); 
+
+app.use(cors());
 
 
 // Configuração do CORS manual
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
+
+
 
 
 
@@ -63,6 +67,24 @@ app.post('/cadastrarPaciente', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ mensagem: 'Erro ao cadastrar paciente' });
+  }
+});
+
+app.delete('/excluirPaciente/:id', async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    // Substitua findByIdAndRemove por findByIdAndDelete
+    const pacienteExcluido = await Paciente.findByIdAndDelete(id);
+
+    if (pacienteExcluido) {
+      res.status(200).json({ mensagem: 'Paciente excluído com sucesso!' });
+    } else {
+      res.status(404).json({ mensagem: 'Paciente não encontrado.' });
+    }
+  } catch (error) {
+    console.error('Erro ao excluir paciente:', error);
+    res.status(500).json({ mensagem: 'Erro interno do servidor' });
   }
 });
 
