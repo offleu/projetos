@@ -55,7 +55,7 @@ app.post('/cadastrarPaciente', async (req, res) => {
     res.status(200).end();
     return;
   }
-  
+
   try {
     const novoPaciente = new Paciente(req.body);
     await novoPaciente.save();
@@ -71,3 +71,12 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
 
+app.get('/listarPacientes', async (req, res) => {
+  try {
+    const pacientes = await Paciente.find();
+    res.status(200).json(pacientes);
+  } catch (error) {
+    console.error('Erro ao obter pacientes:', error);
+    res.status(500).json({ mensagem: 'Erro ao obter pacientes' });
+  }
+});
