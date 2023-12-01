@@ -5,18 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
     <link rel="stylesheet" type="text/css" href="/pacientes/cadastrarpaciente.css" />
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
-    <script src="/database.js" type="module"></script>  
-    <script src="/pacientes/cadastrarpaciente.js" type="module"></script>  
-    <script src="/pacientes/trocarfoto.js" type="module"></script>
+    <script src="/server.js" type="module"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>   
     <script type="text/javascript"></script>
-    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
+    <script>
+      $(document).ready(() => {
+        $('#buttoncadastro').click(() => {
+          const pacienteData = {
+            primeironome: $('#primeironome').val(),
+            // Outros campos...
+          };
+
+          $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/cadastrarPaciente',
+            contentType: 'application/json',
+            data: JSON.stringify(pacienteData),
+            success: function(response) {
+              alert(response);
+            },
+            error: function(error) {
+              alert('Erro ao cadastrar paciente');
+              console.error(error);
+            }
+          });
+        });
+      });
+    </script>
     <title>Cadastrar Paciente</title>
-    <script type="text/javascript"></script>
-    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
+    <script type="text/javascript"></script>   
     <title>Dashboard Paciente</title>
 </head>
 <body>
@@ -66,8 +83,7 @@
   </nav>
   
 </nav>
-  <div class="form">  
-    <form action="">
+    <form id="formCadastro" action="">
       <div class="form-header">
         <div class="title">
           <h1>
@@ -152,20 +168,35 @@
 
         
 
-        <div class="cadastrar-bottom"> 
-          <button id="buttoncadastro" type="button">Cadastrar</button>
-        </div>
+      <div class="cadastrar-bottom">
+        <button id="buttoncadastro" type="button" onclick="enviarFormulario()">Cadastrar</button>
       </div>
-    </form>
-
-  
-
-  
-
-
-
-    
+      </div>
+    </form>   
 </div>
+
+<script>
+  async function enviarFormulario() {
+    const form = document.getElementById('formCadastro');
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('http://localhost:3000/cadastrarPaciente', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+      });
+
+      const data = await response.json();
+      alert(data.mensagem);
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao cadastrar paciente');
+    }
+  }
+</script>
 
 
 
