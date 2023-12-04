@@ -34,6 +34,7 @@ const Paciente = mongoose.model('Paciente', {
   primeironome: String,
   naturalidade: String,
   nascimento: Date,
+  email: String,
   cpf: String,
   gender: String,
   celular: String,
@@ -44,11 +45,11 @@ const Paciente = mongoose.model('Paciente', {
   telefoneresponsavel: String
 });
 
-
 function obterDadosDoBancoDeDados(id) {
   // Lógica para consultar um banco de dados e retornar os detalhes do paciente
-  return { primeironome: 'Nome do Paciente', celular: '123456789', naturalidade: 'Brasileiro', cpf: '1234567899', gender: 'masculino', observacao: 'text', sessao:'Anamnese', valor:'120', responsavel: "Nome Responsavel", telefoneresponsavel:'123456789'  };
+  return { primeironome: 'name', celular: '123456789', naturalidade: 'Brasileiro', cpf: '1234567899', gender: 'masculino', observacao: 'text', sessao:'Anamnese', valor:'120', responsavel: "Nome Responsavel", telefoneresponsavel:'123456789', email: 'text'  };
 }
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

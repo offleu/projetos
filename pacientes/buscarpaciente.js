@@ -1,5 +1,6 @@
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const idPaciente = urlParams.get('id');
@@ -31,4 +32,9 @@ async function carregarDadosPaciente(id) {
     } catch (error) {
         console.error('Erro ao carregar dados do paciente:', error);
     }
+}
+
+function formatarData(dataString) {
+    const data = new Date(dataString);
+    return data.toLocaleDateString();
 }
