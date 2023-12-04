@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
     <link rel="stylesheet" type="text/css" href="/pacientes/paciente.css" />
     
-    
     <script src="/pacientes/listaPaciente.js" type="module"></script>
     <script src="/pacientes/excluirPaciente.js" type="module"></script>
 
@@ -21,23 +20,21 @@
 
 <!-- Menu lateral -->
 <nav class="nav-principal">
-  <span class="icones">
     <ul>    
-      <li><a href="/pacientes/pacientes.html"><i class="fas fa-user-plus fa-2x"></i> <p>Paciente</p></a></li>
-      <li><a href="/laudos.html"><i class="fas fa-file-alt fa-2x" ></i> <p> Laudos</p></a></li>
-      <li><a href="/acompanhamento.html"><i class="fas fa-chart-line fa-2x"></i><p> Relatório</p></a></li>
-      <li><a href="/agenda/agendamento.html"><i class="fas fa-calendar-alt fa-2x"></i> <p>Agenda</p></a></li>
-      <li><a href="/arquivos.html"><i class="fas fa-file-archive fa-2x"></i><p> Arquivos</p></a></li>
-      <li><a href="/financeiro/financeiro.html"><i class="fas fa-money-bill-wave fa-2x"></i><p> Financeiro</p></a></li>
+        <li><a href="/pacientes/pacientes.html"><i class="fas fa-user-plus fa-2x"></i> <p>Paciente</p></a></li>
+        <li><a href="/laudos.html"><i class="fas fa-file-alt fa-2x" ></i> <p> Laudos</p></a></li>
+        <li><a href="/acompanhamento.html"><i class="fas fa-chart-line fa-2x"></i><p> Relatório</p></a></li>
+        <li><a href="/agenda/agendamento.html"><i class="fas fa-calendar-alt fa-2x"></i> <p>Agenda</p></a></li>
+        <li><a href="/arquivos.html"><i class="fas fa-file-archive fa-2x"></i><p> Arquivos</p></a></li>
+        <li><a href="/financeiro/financeiro.html"><i class="fas fa-money-bill-wave fa-2x"></i><p> Financeiro</p></a></li>
     </ul>
-  </span>  
 </nav>
 
 <!-- Conteúdo principal -->
 <main>
     <div class="pacientes-cadastrados">
-      <h1>Listagem de Pacientes</h1>
-      <ul id="listaPacientes"></ul>
+        <h1>Listagem de Pacientes</h1>
+        <ul id="listaPacientes"></ul>
     </div>
     <div>
         <a href="cadastrar.html"><button class="buttom-adicionarpaciente">
@@ -49,22 +46,21 @@
     </div>
 
     <table border="1">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Nascimento</th>
-          <th>CPF</th>
-          <th>Responsável</th>
-          <th>Telefone do Responsável</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody id="tabelaPacientes">
-      </tbody>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Nascimento</th>
+                <th>CPF</th>
+                <th>Responsável</th>
+                <th>Telefone do Responsável</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaPacientes">
+            <!-- Os dados da tabela serão inseridos dinamicamente aqui -->
+        </tbody>
     </table>
-  </div>
-
 </main>
 
 </body>
-</html
+</html>

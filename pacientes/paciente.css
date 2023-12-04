@@ -163,3 +163,7 @@ td {
 .buttom-adicionarpaciente :active{
     background-color: rgb(106, 0, 159);
 }
+
+#tabelaPacientes {
+    cursor: pointer;
+}
