@@ -45,10 +45,6 @@ const Paciente = mongoose.model('Paciente', {
   telefoneresponsavel: String
 });
 
-function obterDadosDoBancoDeDados(id) {
-  // Lógica para consultar um banco de dados e retornar os detalhes do paciente
-  return { primeironome: 'name', celular: '123456789', naturalidade: 'Brasileiro', cpf: '1234567899', gender: 'masculino', observacao: 'text', sessao:'Anamnese', valor:'120', responsavel: "Nome Responsavel", telefoneresponsavel:'123456789', email: 'text'  };
-}
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -112,9 +108,21 @@ app.get('/listarPacientes', async (req, res) => {
 
 
 
-app.get('/obterPaciente/:id', (req, res) => {
+app.get('/obterPaciente/:id', async (req, res) => {
   const idPaciente = req.params.id;
-  // Lógica para obter os dados do paciente pelo ID e enviar como JSON
-  const dadosPaciente = obterDadosDoBancoDeDados(idPaciente);
-  res.json(dadosPaciente);
+
+  try {
+      const paciente = await Paciente.findById(idPaciente);
+
+      if (paciente) {
+          res.json(paciente);
+      } else {
+          res.status(404).json({ mensagem: 'Paciente não encontrado' });
+      }
+  } catch (error) {
+      console.error('Erro ao obter detalhes do paciente:', error);
+      res.status(500).json({ mensagem: 'Erro interno do servidor' });
+  }
 });
+
+

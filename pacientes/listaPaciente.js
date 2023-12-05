@@ -25,9 +25,6 @@ async function carregarPacientes() {
                                         <button class="btn-excluir" data-id="${paciente._id}">Excluir</button>
                                     </td>`;
 
-
-                newRow.addEventListener('click', () => mostrarDetalhesPaciente(paciente._id));
-
                 
 
     
@@ -98,7 +95,7 @@ function editarPaciente(id) {
 }
 
 
-function mostrarDetalhesPaciente(id) {
+async function mostrarDetalhesPaciente(id) {
     // Adapte o código para redirecionar para a página principal com os detalhes do paciente
     window.location.href = `/pacientes/principalpaciente.html?id=${id}`;
 }
