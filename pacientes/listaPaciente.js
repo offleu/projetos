@@ -12,8 +12,8 @@ async function carregarPacientes() {
 
         pacientes.forEach((paciente) => {
             const newRow = tabelaPacientes.insertRow();
-            if (newRow) {    
-
+            if (newRow) {
+                newRow.setAttribute('data-id', paciente._id); // Adicione esta linha
 
                 newRow.innerHTML = `<td>${paciente.primeironome}</td>
                                     <td>${formatarData(paciente.nascimento)}</td>
@@ -24,12 +24,17 @@ async function carregarPacientes() {
                                         <button class="btn-editar" data-id="${paciente._id}">Editar</button>
                                         <button class="btn-excluir" data-id="${paciente._id}">Excluir</button>
                                     </td>`;
+            }
+        });
 
-                
-
-    
-        
-            }});
+        // Adiciona o ouvinte de evento à tabela
+        tabelaPacientes.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target.tagName === 'TD') {
+                const idPaciente = target.parentElement.getAttribute('data-id');
+                mostrarDetalhesPaciente(idPaciente);
+            }
+        });
 
         // Adiciona os ouvintes de eventos após carregar os pacientes
         adicionarOuvintesEventos();
@@ -42,23 +47,14 @@ function adicionarOuvintesEventos() {
     // Adiciona um ouvinte de evento para cada botão de excluir
     const botoesExcluir = document.querySelectorAll('.btn-excluir');
     botoesExcluir.forEach((botao) => {
-        botao.addEventListener('click', () => {
+        botao.addEventListener('click', (event) => {
             event.stopPropagation();
             const idPaciente = botao.getAttribute('data-id');
             excluirPaciente(idPaciente);
         });
     });
 
-     // Adiciona um ouvinte de evento para cada linha (se necessário)
-     const linhasPacientes = document.querySelectorAll('#tabelaPacientes');
-     linhasPacientes.forEach((linha) => {
-         linha.addEventListener('click', () => {
-             const idPaciente = linha.querySelector('.btn-excluir').getAttribute('data-id');
-             mostrarDetalhesPaciente(idPaciente);
-         });
-     });
-
-    // Adiciona um ouvinte de evento para cada botão de editar (se necessário)
+    // Adiciona um ouvinte de evento para cada botão de editar
     const botoesEditar = document.querySelectorAll('.btn-editar');
     botoesEditar.forEach((botao) => {
         botao.addEventListener('click', () => {
@@ -93,7 +89,6 @@ function formatarData(dataString) {
 function editarPaciente(id) {
     console.log(`Editar paciente com ID: ${id}`);
 }
-
 
 async function mostrarDetalhesPaciente(id) {
     // Adapte o código para redirecionar para a página principal com os detalhes do paciente
