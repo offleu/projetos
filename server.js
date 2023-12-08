@@ -25,6 +25,8 @@ app.use((req, res, next) => {
 
 
 
+
+
 // Conecte-se ao MongoDB (substitua 'suaConexaoMongoDB' pela sua URL de conexão real)
 mongoose.connect('mongodb+srv://root:root@cluster0.vsf5blb.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -105,6 +107,16 @@ app.get('/listarPacientes', async (req, res) => {
   }
 });
 
+app.get('/listaPacientes', async (req, res) => {
+  try {
+      const pacientes = await Paciente.find({}, 'primeironome'); // Apenas recupere o nome do paciente para economizar largura de banda
+      res.json(pacientes);
+  } catch (error) {
+      console.error('Erro ao obter lista de pacientes:', error);
+      res.status(500).json({ error: 'Erro interno do servidor' });
+  }
+});
+
 
 
 app.get('/obterPaciente/:id', async (req, res) => {
@@ -144,3 +156,23 @@ async function obterDetalhesPaciente(req, res) {
       res.status(500).json({ error: 'Erro interno do servidor' });
   }
 }
+
+
+app.post('/adicionarAgendamento', async (req, res) => {
+  try {
+      const { idPaciente, dia, hora } = req.body;
+
+      const novoAgendamento = new Agendamento({
+          idPaciente,
+          dia,
+          hora
+      });
+
+      await novoAgendamento.save();
+
+      res.status(201).json({ mensagem: 'Agendamento adicionado com sucesso!' });
+  } catch (error) {
+      console.error('Erro ao adicionar agendamento:', error);
+      res.status(500).json({ mensagem: 'Erro ao adicionar agendamento' });
+  }
+});

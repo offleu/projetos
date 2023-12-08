@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
     <link rel="stylesheet" type="text/css" href="/agenda/agenda.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-mVfbIuTZ82GGfY5Y64F0vnpxTsL0FAsd+PzUpNTbCmbjoRj9a19/ZWgPbCK8SdsAatjt2bWjoX8z58kYceoqzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/server.js" type="module"></script>
+    <script defer src="/agenda/agendamento.js" type="module"></script>
+    <script defer src="/agenda/agendamentoModels.js" type="module"></script>
     <title>Agenda</title>
 </head>
 <body>
@@ -201,32 +203,32 @@
                 <td>Agendar</td>
                 <td colspan="5">
                     <form onsubmit="adicionarEvento(); return false;">
-                        <input type="text" id="evento" placeholder="Paciente" required>
-                        <select id="dia">
+                        <label for="paciente">Paciente:</label>
+                        <select id="paciente" required>
+                            <!-- A lista de pacientes será preenchida dinamicamente pelo JavaScript -->
+                        </select>
+                        
+                        <label for="dia">Dia:</label>
+                        <select id="dia" required>
                             <option value="segunda">Segunda-feira</option>
                             <option value="terca">Terça-feira</option>
                             <option value="quarta">Quarta-feira</option>
                             <option value="quinta">Quinta-feira</option>
                             <option value="sexta">Sexta-feira</option>
                         </select>
-                        <select id="hora">
+                        
+                        <label for="hora">Hora:</label>
+                        <select id="hora" required>
                             <option value="0700">07:00 - 08:00</option>
                             <option value="0800">08:00 - 09:00</option>
                             <option value="0900">09:00 - 10:00</option>
-                            <option value="1000">10:00 - 11:00</option>
-                            <option value="1100">11:00 - 12:00</option>
-                            <option value="1200">12:00 - 13:00</option>
-                            <option value="1300">13:00 - 14:00</option>
-                            <option value="1400">14:00 - 15:00</option>
-                            <option value="1500">15:00 - 16:00</option>
-                            <option value="1600">16:00 - 17:00</option>
-                            <option value="1700">17:00 - 18:00</option>
-                            <option value="1800">18:00 - 19:00</option>
-                            
-
                             <!-- Adicione mais opções conforme necessário -->
                         </select>
-                        <button type="submit">Adicionar</button>
+                        
+                        <button type="button" onclick="adicionarEvento()">Agendar</button>
+
+                            <!-- Adicione mais opções conforme necessário -->
+
                     </form>
                 </td>
             </tr>
@@ -234,62 +236,7 @@
     </table>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Recuperar eventos do armazenamento local ao carregar a página
-            for (var dia = 1; dia <= 5; dia++) {
-                for (var hora = 9; hora <= 17; hora++) {
-                    var cellId = getCellId(dia, hora);
-                    var eventoSalvo = localStorage.getItem(cellId);
-
-                    if (eventoSalvo) {
-                        document.getElementById(cellId).innerText = eventoSalvo;
-                        adicionarBotaoExcluir(cellId); // Adiciona o botão de excluir para eventos existentes
-                    }
-                }
-            }
-        });
-
-        function adicionarEvento() {
-            // Obter valores do formulário
-            var nomeEvento = document.getElementById('evento').value;
-            var diaSelecionado = document.getElementById('dia').value;
-            var horaSelecionada = document.getElementById('hora').value;
-
-            // Construir o ID da célula
-            var cellId = diaSelecionado + '-' + horaSelecionada;
-
-            // Adicionar o evento à célula
-            document.getElementById(cellId).innerText = nomeEvento;
-            adicionarBotaoExcluir(cellId);
-
-            // Salvar o evento no armazenamento local
-            localStorage.setItem(cellId, nomeEvento);
-
-            // Limpar o formulário
-            document.getElementById('evento').value = '';
-        }
-
-        function adicionarBotaoExcluir(cellId) {
-            // Adiciona um botão de excluir ao lado do evento
-            var cell = document.getElementById(cellId);
-            var botaoExcluir = document.createElement("button");
-            botaoExcluir.innerHTML = "Excluir";
-            botaoExcluir.onclick = function () {
-                excluirEvento(cellId);
-            };
-            cell.appendChild(botaoExcluir);
-        }
-
-        function excluirEvento(cellId) {
-            // Exclui o evento da célula e remove do armazenamento local
-            var cell = document.getElementById(cellId);
-            cell.innerText = "";
-            localStorage.removeItem(cellId);
-        }
-
-        function getCellId(dia, hora) {
-            return dia + '-' + hora + '00';
-        }
+        
     </script>
         
 
