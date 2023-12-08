@@ -1,7 +1,6 @@
 
 
 
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -126,3 +125,22 @@ app.get('/obterPaciente/:id', async (req, res) => {
 });
 
 
+async function obterDetalhesPaciente(req, res) {
+  try {
+      const id = req.params.id;
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+          return res.status(400).json({ error: 'ID de paciente inválido' });
+      }
+
+      const paciente = await Paciente.findById(id);
+
+      if (!paciente) {
+          return res.status(404).json({ error: 'Paciente não encontrado' });
+      }
+
+      res.json(paciente);
+  } catch (error) {
+      console.error('Erro ao obter detalhes do paciente:', error);
+      res.status(500).json({ error: 'Erro interno do servidor' });
+  }
+}

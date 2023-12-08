@@ -19,12 +19,12 @@ async function carregarDetalhesPaciente(id) {
 
         // Preencher os campos na página com os dados do paciente
         document.getElementById('nome-dado').textContent = paciente.primeironome;
-        document.getElementById('telefone-dado').textContent = paciente.telefone;
+        document.getElementById('telefone-dado').textContent = paciente.celular;
         document.getElementById('email-dado').textContent = paciente.email;
         document.getElementById('data-nascimento-dado').textContent = formatarData(paciente.nascimento);
         document.getElementById('responsavel-dado').textContent = paciente.responsavel;
-        document.getElementById('tipo-sessao-dado').textContent = paciente.tipoSessao;
-        document.getElementById('valor-sessao-dado').textContent = paciente.valorSessao;
+        document.getElementById('tipo-sessao-dado').textContent = paciente.sessao;
+        document.getElementById('valor-sessao-dado').textContent = paciente.valor;
     } catch (error) {
         console.error('Erro ao obter detalhes do paciente:', error);
     }
