@@ -176,3 +176,22 @@ app.post('/adicionarAgendamento', async (req, res) => {
       res.status(500).json({ mensagem: 'Erro ao adicionar agendamento' });
   }
 });
+
+app.post('/adicionarAgendamento', async (req, res) => {
+  try {
+      const { idPaciente, dia, hora } = req.body;
+
+      const novoAgendamento = new Agendamento({
+          idPaciente,
+          dia,
+          hora
+      });
+
+      await novoAgendamento.save();
+
+      res.status(201).json({ mensagem: 'Agendamento adicionado com sucesso!' });
+  } catch (error) {
+      console.error('Erro ao adicionar agendamento:', error);
+      res.status(500).json({ mensagem: 'Erro ao adicionar agendamento' });
+  }
+});

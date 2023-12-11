@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", async function () {
     const listaPacientes = await obterListaPacientes();
     preencherListaPacientes(listaPacientes);
+
+    // Adiciona um event listener ao botão Agendar
+    const btnAgendar = document.getElementById('btnAgendar');
+    btnAgendar.addEventListener('click', agendarEvento);
 });
 
 async function obterListaPacientes() {
@@ -24,24 +28,32 @@ function preencherListaPacientes(listaPacientes) {
     });
 }
 
-const mongoose = require('mongoose');
+async function agendarEvento() {
+    try {
+        const pacienteId = document.getElementById('paciente').value;
+        const dia = document.getElementById('dia').value;
+        const hora = document.getElementById('hora').value;
 
-const agendamentoSchema = new mongoose.Schema({
-    idPaciente: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Paciente',
-        required: true
-    },
-    dia: {
-        type: String,
-        required: true
-    },
-    hora: {
-        type: String,
-        required: true
+        const resposta = await fetch('http://localhost:3000/adicionarAgendamento', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                idPaciente: pacienteId,
+                dia,
+                hora,
+            }),
+        });
+
+        if (resposta.ok) {
+            alert('Agendamento concluído com sucesso!');
+        } else {
+            console.error('Erro ao agendar evento:', resposta.statusText);
+            alert('Erro ao agendar evento. Consulte o console para mais detalhes.');
+        }
+    } catch (error) {
+        console.error('Erro ao agendar evento:', error);
+        alert('Erro ao agendar evento. Consulte o console para mais detalhes.');
     }
-});
-
-const Agendamento = mongoose.model('Agendamento', agendamentoSchema);
-
-module.exports = Agendamento;
+}
