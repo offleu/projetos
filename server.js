@@ -1,6 +1,4 @@
 
-
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -19,12 +17,6 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
-
-
-
-
-
-
 
 
 // Conecte-se ao MongoDB (substitua 'suaConexaoMongoDB' pela sua URL de conexão real)
@@ -158,40 +150,35 @@ async function obterDetalhesPaciente(req, res) {
 }
 
 
-app.post('/adicionarAgendamento', async (req, res) => {
-  try {
-      const { idPaciente, dia, hora } = req.body;
-
-      const novoAgendamento = new Agendamento({
-          idPaciente,
-          dia,
-          hora
-      });
-
-      await novoAgendamento.save();
-
-      res.status(201).json({ mensagem: 'Agendamento adicionado com sucesso!' });
-  } catch (error) {
-      console.error('Erro ao adicionar agendamento:', error);
-      res.status(500).json({ mensagem: 'Erro ao adicionar agendamento' });
-  }
+const agendamentoSchema = new mongoose.Schema({
+  idPaciente: String,
+  dia: String,
+  hora: String,
 });
+
+const Agendamento = mongoose.model('Agendamento', agendamentoSchema);
+
+app.use(bodyParser.json());
 
 app.post('/adicionarAgendamento', async (req, res) => {
   try {
-      const { idPaciente, dia, hora } = req.body;
+    const { idPaciente, dia, hora } = req.body;
 
-      const novoAgendamento = new Agendamento({
-          idPaciente,
-          dia,
-          hora
-      });
+    // Cria uma instância do modelo Agendamento
+    const novoAgendamento = new Agendamento({
+      idPaciente,
+      dia,
+      hora,
+    });
 
-      await novoAgendamento.save();
+    // Salva no MongoDB
+    await novoAgendamento.save();
 
-      res.status(201).json({ mensagem: 'Agendamento adicionado com sucesso!' });
+    // Responde com sucesso
+    res.status(200).json({ mensagem: 'Agendamento adicionado com sucesso!' });
   } catch (error) {
-      console.error('Erro ao adicionar agendamento:', error);
-      res.status(500).json({ mensagem: 'Erro ao adicionar agendamento' });
+    console.error('Erro ao adicionar agendamento:', error);
+    res.status(500).json({ erro: 'Erro interno do servidor ao adicionar agendamento' });
   }
 });
+

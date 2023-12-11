@@ -30,7 +30,13 @@ function preencherListaPacientes(listaPacientes) {
 
 async function agendarEvento() {
     try {
-        const pacienteId = document.getElementById('paciente').value;
+        // Verifica se um paciente foi selecionado
+        const pacienteSelecionado = document.getElementById('paciente').value;
+        if (!pacienteSelecionado) {
+            alert('Por favor, selecione um paciente.');
+            return;
+        }
+
         const dia = document.getElementById('dia').value;
         const hora = document.getElementById('hora').value;
 
@@ -40,7 +46,7 @@ async function agendarEvento() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                idPaciente: pacienteId,
+                idPaciente: pacienteSelecionado,
                 dia,
                 hora,
             }),
