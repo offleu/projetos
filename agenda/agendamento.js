@@ -4,31 +4,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Adiciona um event listener ao botão Agendar
     const btnAgendar = document.getElementById('btnAgendar');
-    btnAgendar.addEventListener('click', agendarEvento);
+    btnAgendar.addEventListener('click', adicionarEvento);
 });
 
-async function obterListaPacientes() {
-    try {
-        const resposta = await fetch('http://localhost:3000/listaPacientes');
-        const listaPacientes = await resposta.json();
-        return listaPacientes;
-    } catch (error) {
-        console.error('Erro ao obter lista de pacientes:', error);
-        return [];
-    }
-}
-
-function preencherListaPacientes(listaPacientes) {
-    const selectPaciente = document.getElementById('paciente');
-    listaPacientes.forEach(paciente => {
-        const option = document.createElement('option');
-        option.value = paciente._id; // Use o ID do paciente como valor
-        option.textContent = paciente.primeironome;
-        selectPaciente.appendChild(option);
-    });
-}
-
-async function agendarEvento() {
+async function adicionarEvento() {
     try {
         // Verifica se um paciente foi selecionado
         const pacienteSelecionado = document.getElementById('paciente').value;
@@ -63,3 +42,26 @@ async function agendarEvento() {
         alert('Erro ao agendar evento. Consulte o console para mais detalhes.');
     }
 }
+
+async function obterListaPacientes() {
+    try {
+        const resposta = await fetch('http://localhost:3000/listaPacientes');
+        const listaPacientes = await resposta.json();
+        return listaPacientes;
+    } catch (error) {
+        console.error('Erro ao obter lista de pacientes:', error);
+        return [];
+    }
+}
+
+function preencherListaPacientes(listaPacientes) {
+    const selectPaciente = document.getElementById('paciente');
+    listaPacientes.forEach(paciente => {
+        const option = document.createElement('option');
+        option.value = paciente._id; // Use o ID do paciente como valor
+        option.textContent = paciente.primeironome;
+        selectPaciente.appendChild(option);
+    });
+}
+
+
