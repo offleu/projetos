@@ -2,12 +2,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     const listaPacientes = await obterListaPacientes();
     preencherListaPacientes(listaPacientes);
 
-    // Adiciona um event listener ao botão Agendar
-    const btnAgendar = document.getElementById('btnAgendar');
-    btnAgendar.addEventListener('click', adicionarEvento);
+
+    const form = document.getElementById('seuFormularioId');
+    form.addEventListener('submit', adicionarEvento);
 });
 
-async function adicionarEvento() {
+async function adicionarEvento(event) {
+    event.preventDefault();
+    console.log('Evento de envio do formulário acionado!');
     try {
         // Verifica se um paciente foi selecionado
         const pacienteSelecionado = document.getElementById('paciente').value;
