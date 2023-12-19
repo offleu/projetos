@@ -8,24 +8,33 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 
-async function carregarAgendamentos() {
+async function carregarAgendamento() {
     try {
         const resposta = await fetch('http://localhost:3000/listarAgendamentos');
-        const listaAgendamentos = await resposta.json();
+        const agendamentos = await resposta.json();
 
-        // Atualize a tabela com os novos agendamentos
-        listaAgendamentos.forEach(agendamento => {
-            const { data, hora, paciente } = agendamento;
-            const idCelula = `${data}-${hora}`;
-            const celula = document.getElementById(idCelula);
+        agendamentos.forEach(agendamento => {
+            const { idPaciente, dia, hora } = agendamento;
 
-            if (celula) {
-                celula.textContent = paciente.nome; // Atualize conforme a estrutura real do objeto de paciente
+            //contruindo id da celula da tabela de agenda
+
+            const cellId = `${dia.toLowerCase()}-${hora}`;
+
+            //obtenha a celula da tabela agenda pelo ID
+
+            const cell = document.getElementById(cellId);
+
+            if (cell) {
+                const nomePaciente = agendamento.nomePaciente;
+                cell.textContent = nomePaciente;
             }
+
+
         });
     } catch (error) {
         console.error('Erro ao carregar agendamentos:', error);
     }
+
 }
 
 async function adicionarEvento(event) {
@@ -43,7 +52,7 @@ async function adicionarEvento(event) {
             },
             body: JSON.stringify({
                 idPaciente: pacienteSelecionado,
-                data: dataSelecionada,
+                dia,
                 hora,
             }),
         });

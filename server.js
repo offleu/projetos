@@ -183,17 +183,3 @@ app.post('/adicionarAgendamento', async (req, res) => {
   }
 });
 
-app.post('/adicionarEvento', async (req, res) => {
-  try {
-    const { idPaciente, dia, hora } = req.body;
-
-    // Lógica para adicionar o evento usando idPaciente, dia e hora
-
-    // Exemplo de resposta de sucesso
-    res.status(200).json({ mensagem: 'Evento adicionado com sucesso!' });
-  } catch (error) {
-    console.error('Erro ao adicionar evento:', error);
-    // Resposta de erro
-    res.status(500).json({ erro: 'Erro ao adicionar evento. Consulte o console para mais detalhes.' });
-  }
-});
