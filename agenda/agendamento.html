@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="stylesheet" type="text/css" href="/agenda/agenda.css" />
     <script src="/server.js" type="module"></script>
     <script defer src="/agenda/agendamento.js" type="module"></script>
     <script defer src="./agendamentoModels.js" type="module"></script>
+   
     <title>Agenda</title>
 </head>
 <body>
@@ -209,13 +212,7 @@
                         </select>
                         
                         <label for="dia">Dia:</label>
-                        <select id="dia" required>
-                            <option value="segunda">Segunda-feira</option>
-                            <option value="terca">Terça-feira</option>
-                            <option value="quarta">Quarta-feira</option>
-                            <option value="quinta">Quinta-feira</option>
-                            <option value="sexta">Sexta-feira</option>
-                        </select>
+                        <input type="text" id="calendario" required>
                         
                         <label for="hora">Hora:</label>
                         <select id="hora" required>
@@ -241,6 +238,17 @@
         
 
 </main>
+<script>
+    // Configurando o flatpickr para o input de calendário
+    flatpickr('#calendario', {
+        dateFormat: 'Y-m-d', // Formato da data
+        enableTime: false, // Desabilitar a escolha de hora
+        defaultDate: 'today', // Data inicial (hoje)
+        minDate: 'today', // A data mínima permitida é hoje
+        inline: false, // Não mostrar o calendário inline
+    });
+
+</script>
 
 </body>
 </html>

@@ -7,20 +7,35 @@ document.addEventListener("DOMContentLoaded", async function () {
     form.addEventListener('submit', adicionarEvento);
 });
 
+
+async function carregarAgendamentos() {
+    try {
+        const resposta = await fetch('http://localhost:3000/listarAgendamentos');
+        const listaAgendamentos = await resposta.json();
+
+        // Atualize a tabela com os novos agendamentos
+        listaAgendamentos.forEach(agendamento => {
+            const { data, hora, paciente } = agendamento;
+            const idCelula = `${data}-${hora}`;
+            const celula = document.getElementById(idCelula);
+
+            if (celula) {
+                celula.textContent = paciente.nome; // Atualize conforme a estrutura real do objeto de paciente
+            }
+        });
+    } catch (error) {
+        console.error('Erro ao carregar agendamentos:', error);
+    }
+}
+
 async function adicionarEvento(event) {
     event.preventDefault();
-    console.log('Evento de envio do formulário acionado!');
+
+    const pacienteSelecionado = document.getElementById('paciente').value;
+    const dataSelecionada = document.getElementById('calendario').value;
+    const hora = document.getElementById('hora').value;
+
     try {
-        // Verifica se um paciente foi selecionado
-        const pacienteSelecionado = document.getElementById('paciente').value;
-        if (!pacienteSelecionado) {
-            alert('Por favor, selecione um paciente.');
-            return;
-        }
-
-        const dia = document.getElementById('dia').value;
-        const hora = document.getElementById('hora').value;
-
         const resposta = await fetch('http://localhost:3000/adicionarAgendamento', {
             method: 'POST',
             headers: {
@@ -28,13 +43,15 @@ async function adicionarEvento(event) {
             },
             body: JSON.stringify({
                 idPaciente: pacienteSelecionado,
-                dia,
+                data: dataSelecionada,
                 hora,
             }),
         });
 
         if (resposta.ok) {
             alert('Agendamento concluído com sucesso!');
+            // Atualize a tabela de agendamentos após o agendamento bem-sucedido
+            await carregarAgendamentos();
         } else {
             console.error('Erro ao agendar evento:', resposta.statusText);
             alert('Erro ao agendar evento. Consulte o console para mais detalhes.');
